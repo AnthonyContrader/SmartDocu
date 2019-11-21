@@ -16,13 +16,13 @@ public class UserInsertView extends AbstractView{
 	}
 	
 	/**
-	 * Se la request non è nulla (ovvero se si arriva dalla mode INSERT del controller) mostra
+	 * Se la request non ï¿½ nulla (ovvero se si arriva dalla mode INSERT del controller) mostra
 	 * l'esito dell'operazione
 	 */
 	@Override
 	public void showResults(Request request) {
 		if (request!=null) {
-			System.out.println("Inserimento andato a buon fine.\n");
+			System.out.println("\nInserimento andato a buon fine.\n");
 			MainDispatcher.getInstance().callView("User", null);
 		}
 	}
@@ -32,11 +32,11 @@ public class UserInsertView extends AbstractView{
 	 */
 	@Override
 	public void showOptions() {
-			System.out.println("Inserisci username dell'utente:");
+			System.out.print("\nInserisci username dell'utente: ");
 			username = getInput();
-			System.out.println("Inserisci password dell'utente:");
+			System.out.print("Inserisci password dell'utente: ");
 			password = getInput();
-			System.out.println("Inserisci tipo dell'utente:");
+			System.out.print("Inserisci tipo dell'utente: ");
 			usertype = getInput();
 	}
 

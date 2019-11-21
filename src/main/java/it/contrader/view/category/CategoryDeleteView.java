@@ -13,7 +13,7 @@ public class CategoryDeleteView extends AbstractView {
 	public CategoryDeleteView() {
 	}
 	/**
-	 * Se la request non è nulla (ovvero se si arriva dalla mode DELETE del controller) mostra
+	 * Se la request non ï¿½ nulla (ovvero se si arriva dalla mode DELETE del controller) mostra
 	 * l'esito dell'operazione
 	 */
 	public void showResults(Request request) {
@@ -27,12 +27,12 @@ public class CategoryDeleteView extends AbstractView {
 	 */
 	@Override
 	public void showOptions() {
-		System.out.println("Inserisci id dell'utente:");
+		System.out.println("\nInserisci id della categoria: ");
 		id = Integer.parseInt(getInput());
 
 	}
 	/**
-	 * impacchetta la request con l'id dell'utente da cancellare
+	 * impacchetta la request con l'id della categoria da cancellare
 	 */
 	@Override
 	public void submit() {

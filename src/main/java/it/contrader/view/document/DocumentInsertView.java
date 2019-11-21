@@ -27,7 +27,7 @@ public class DocumentInsertView extends AbstractView {
 	@Override
 	public void showResults(Request request) {
 		if (request!=null) {
-			System.out.println("Inserimento andato a buon fine.\n");
+			System.out.println("\nInserimento andato a buon fine.\n");
 			MainDispatcher.getInstance().callView("Document", null);
 		}
 	}
@@ -37,15 +37,15 @@ public class DocumentInsertView extends AbstractView {
 	 */
 	@Override
 	public void showOptions() {
-			System.out.println("Inserisci il titolo del documento:");
+			System.out.print("\nInserisci il titolo del documento: ");
 			title = getInput();
-			System.out.println("Inserisci la descrizione del documento:");
+			System.out.print("Inserisci la descrizione del documento: ");
 			description = getInput();
-			System.out.println("Inserisci il contenuto del documento:");
+			System.out.print("Inserisci il contenuto del documento: ");
 			content = getInput();
-			System.out.println("Inserisci il genere del documento:");
+			System.out.print("Inserisci il genere del documento: ");
 			genre = getInput();
-			System.out.println("Inserisci la data di pubblicazione del documento:");
+			System.out.print("Inserisci la data di pubblicazione del documento: ");
 			date = getInput();
 	}
 

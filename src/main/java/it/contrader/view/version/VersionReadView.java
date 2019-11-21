@@ -20,13 +20,16 @@ public class VersionReadView extends AbstractView {
 	public void showResults(Request request) {
 		if (request != null) {
 			VersionDTO version = (VersionDTO) request.get("version");
-			System.out.println(version);
+			System.out.println("La versione selezionata ha i seguenti dettagli:\n");
+			System.out.println("ID\tData");
+			System.out.println("--------------------------------------------------------------------------------------------------------------------------------");
+			System.out.println(version + "\n");
 			MainDispatcher.getInstance().callView("Version", null);
 		}
 		
 	}
 	public void showOptions() {
-		System.out.println("Inserisci l'ID della versione:");
+		System.out.print("\nInserisci l'ID della versione: ");
 		id = Integer.parseInt(getInput());
 	}
 	

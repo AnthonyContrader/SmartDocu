@@ -15,14 +15,14 @@ public class VersionDeleteView extends AbstractView {
 	}
 	public void showResults(Request request) {
 		if (request!=null) {
-			System.out.println("Cancellazione andata a buon fine.\n");
+			System.out.println("\nCancellazione andata a buon fine.\n");
 			MainDispatcher.getInstance().callView("Version", null);
 	}
 
 }
 	
 	public void showOptions() {
-		System.out.println("Inserisci id della versione:");
+		System.out.print("\nInserisci id della versione: ");
 		id = Integer.parseInt(getInput());
 
 }

@@ -16,14 +16,14 @@ public class VersionInsertView extends AbstractView{
 
 	public void showResults(Request request) {
 		if (request!=null) {
-			System.out.println("Inserimento andato a buon fine.\n");
+			System.out.println("\nInserimento andato a buon fine.\n");
 			MainDispatcher.getInstance().callView("Version", null);
 
 		}
 }
 	
 	public void showOptions() {
-		System.out.println("Inserisci la data di modifica della versione :");
+		System.out.print("\nInserisci la data di modifica della versione :");
 		date = getInput();
 		
 	}

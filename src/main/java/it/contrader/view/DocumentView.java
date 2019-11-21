@@ -10,6 +10,7 @@ public class DocumentView extends AbstractView {
 	
 	private Request request;
 	private String choice;
+	private String user;
 
 	
 	public DocumentView() {
@@ -21,13 +22,23 @@ public class DocumentView extends AbstractView {
 	@Override
 	public void showResults(Request request) {
 		if (request != null) {
-			System.out.println("\n------------------------------------------------------ .:GESTIONE DOCUMENTI:. --------------------------------------------------\n");
-			System.out.println("Id\tTitolo\t\tDescrizione\t\tContenuto\t\t\t\t\t\tGenere\t\tData");
-			System.out.println("--------------------------------------------------------------------------------------------------------------------------------\n");
+			
+			if(request.get("mode").equals("DOCUMENTLIST")) {
+				
+				user = "admin";
+				
+				System.out.println("\n------------------------------------------------------ .:GESTIONE DOCUMENTI:. --------------------------------------------------\n");
+				System.out.println("Id\tTitolo\t\tDescrizione\t\tContenuto\t\t\t\t\t\tGenere\t\tData");
+				System.out.println("--------------------------------------------------------------------------------------------------------------------------------\n");
 			
 			List<DocumentDTO> documents = (List<DocumentDTO>) request.get("documents");
 			for (DocumentDTO d: documents)
 				System.out.println(d + "\n");
+			
+			} else {
+				user = "user";
+				//L'utente non visualizza la lista documenti
+			}
 		}
 	}
 
@@ -37,9 +48,19 @@ public class DocumentView extends AbstractView {
 	 */
 	@Override
 	public void showOptions() {
-		System.out.println("\nScegli l'operazione da effettuare:");
-		System.out.println("[L]eggi [I]nserisci [M]odifica [C]ancella [B]ack [E]sci");
-
+		
+		if(user.equals("admin")) {
+		
+			System.out.println("\nScegli l'operazione da effettuare:");
+			System.out.println("[L]eggi [I]nserisci [M]odifica [C]ancella [B]ack [E]sci");
+		
+		} else {
+			
+			System.out.println("\nScegli l'operazione da effettuare:");
+			System.out.println("[I]nserisci [B]ack [E]sci");
+			
+		}
+		
 		choice = getInput();		
 	}
 	
@@ -49,9 +70,17 @@ public class DocumentView extends AbstractView {
 	@Override
 	public void submit() {
 		request = new Request();
-		request.put("choice", choice);
-		request.put("mode", "GETCHOICE");
+		
+		if(user.equals("admin")) {
+			request.put("choice", choice);
+			request.put("mode", "GETCHOICEADMIN");
+		} else {
+			request.put("choice", choice);
+			request.put("mode", "GETCHOICEUSER");
+		}
+		
 		MainDispatcher.getInstance().callAction("Document", "doControl", request);
+
 	}
 
 }

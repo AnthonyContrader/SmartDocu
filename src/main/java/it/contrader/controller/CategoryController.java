@@ -30,10 +30,10 @@ public class CategoryController implements Controller {
 		
 		/**
 		 * Metodo dell'interfaccia Controller. Estrae dalla request la mode
-		 * (che riceve dalle view specifiche e può essere la richesta di una 
+		 * (che riceve dalle view specifiche e puï¿½ essere la richesta di una 
 		 * scelta da parte dell'utente "GETCHOICE") e la scelta dell'utente.
 		 * 
-		 * Se la modalità corrisponde ad una CRUD il controller chiama i service,
+		 * Se la modalitï¿½ corrisponde ad una CRUD il controller chiama i service,
 		 * altrimenti rimanda alla View della CRUD per richiedere i parametri
 		 */
 		@Override
@@ -107,43 +107,69 @@ public class CategoryController implements Controller {
 				MainDispatcher.getInstance().callView("Category", request);
 				break;
 				
+			case "SINGLECATEGORY":
+				MainDispatcher.getInstance().callView("Category", request);
+				break;
+				
 			//Esegue uno switch sulla base del comando inserito dall'utente e reindirizza tramite il Dispatcher alla View specifica per ogni operazione
 			//con REQUEST NULL (vedi una View specifica)
-			case "GETCHOICE":
-						
-						//toUpperCase() mette in maiuscolo la scelta
+			case "GETCHOICEADMIN":
 				switch (choice.toUpperCase()) {
 				
-				case "L":
-					MainDispatcher.getInstance().callView(sub_package + "CategoryRead", null);
-					break;
-					
-				case "I":
-					MainDispatcher.getInstance().callView(sub_package + "CategoryInsert", null);
-					break;
-					
-				case "M":
-					MainDispatcher.getInstance().callView(sub_package + "CategoryUpdate", null);
-					break;
-					
-				case "C":
-					MainDispatcher.getInstance().callView(sub_package + "CategoryDelete", null);
-					break;
-					
-				case "E":
-					MainDispatcher.getInstance().callView("Login", null);
-					break;
-
-				case "B":
-					MainDispatcher.getInstance().callView("HomeAdmin", null);
-					break;
-					
-				default:
-					MainDispatcher.getInstance().callView("Login", null);
+					case "L":
+						MainDispatcher.getInstance().callView(sub_package + "CategoryRead", null);
+						break;
+						
+					case "I":
+						MainDispatcher.getInstance().callView(sub_package + "CategoryInsert", null);
+						break;
+						
+					case "M":
+						MainDispatcher.getInstance().callView(sub_package + "CategoryUpdate", null);
+						break;
+						
+					case "C":
+						MainDispatcher.getInstance().callView(sub_package + "CategoryDelete", null);
+						break;
+						
+					case "E":
+						MainDispatcher.getInstance().callView("Login", null);
+						break;
+	
+					case "B":
+						MainDispatcher.getInstance().callView("HomeAdmin", null);
+						break;
+						
+					default:
+						MainDispatcher.getInstance().callView("HomeAdmin", null);
 				}
 				
-			default:
-				MainDispatcher.getInstance().callView("Login", null);
+				MainDispatcher.getInstance().callView("HomeAdmin", null);
+				break;
+				
+			case "GETCHOICEUSER":
+				switch (choice.toUpperCase()) {
+					
+					case "I":
+						MainDispatcher.getInstance().callView(sub_package + "CategoryInsert", null);
+						break;
+					
+					case "E":
+						MainDispatcher.getInstance().callView("Login", null);
+						break;
+	
+					case "B":
+						MainDispatcher.getInstance().callView("HomeUser", null);
+						break;
+						
+					default:
+						MainDispatcher.getInstance().callView("HomeUser", null);
+						break;
+					
+				}
+			
+				MainDispatcher.getInstance().callView("HomeUser", null);
+				break;
 			}
 		}
 	}

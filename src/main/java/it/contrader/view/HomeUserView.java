@@ -35,35 +35,34 @@ public class HomeUserView extends AbstractView{
 		request = new Request();
 
 		switch (choice) {
-		case "u":
-        	this.requestUser.put("mode", "SINGLEUSER");
-        	MainDispatcher.getInstance().callAction("User", "doControl", requestUser);
-        	break;
-        
-        	
-        //MODIFICARE	request
-		case "d":
-        	this.request.put("mode", "DOCUMENTLIST");
-        	MainDispatcher.getInstance().callAction("Document", "doControl", request);
-        	break;
-        	
-		case "c":
-        	this.request.put("mode", "CATEGORYLIST");
-        	MainDispatcher.getInstance().callAction("Category", "doControl", request);
-        	break;		
-        	
-		case "v":
-            this.request.put("mode", "VERSIONLIST");
-            MainDispatcher.getInstance().callAction("Version", "doControl", request);
-            break;
-
-		case "e":
-			MainDispatcher.getInstance().callAction("Login", "doControl", null);
-			break;
-
-		default:
-			MainDispatcher.getInstance().callAction("Login", "doControl", null);
+			case "u":
+	        	this.requestUser.put("mode", "SINGLEUSER");
+	        	MainDispatcher.getInstance().callAction("User", "doControl", requestUser);
+	        	break;
+	        
+			case "d":
+	        	this.request.put("mode", "SINGLEDOCUMENT");
+	        	MainDispatcher.getInstance().callAction("Document", "doControl", request);
+	        	break;
+	        	
+			case "c":
+	        	this.request.put("mode", "SINGLECATEGORY");
+	        	MainDispatcher.getInstance().callAction("Category", "doControl", request);
+	        	break;		
+	        	
+			case "v":
+	            this.request.put("mode", "SINGLEVERSION");
+	            MainDispatcher.getInstance().callAction("Version", "doControl", request);
+	            break;
+	
+			case "e":
+				MainDispatcher.getInstance().callAction("Login", "doControl", null);
+				break;
+	
+			default:
+				MainDispatcher.getInstance().callAction("HomeUser", "doControl", null);
 		}
+				
 	}
 
 }

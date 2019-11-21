@@ -12,28 +12,50 @@ public class VersionView extends AbstractView {
 
 	private Request request;
 	private String choice;
+	private String user;
 
 	public VersionView() {
-		
 	}
+	
 	@Override
 	public void showResults(Request request) {
 		if (request != null) {
-			System.out.println("\n------------------- Gestione versioni ----------------\n");
-			System.out.println("ID\tData");
-			System.out.println("----------------------------------------------------\n");
 			
-			@SuppressWarnings("unchecked")
-			List<VersionDTO> versions = (List<VersionDTO>) request.get("versions");
-			for (VersionDTO v: versions)
-				System.out.println(v);
-			System.out.println();
+			if(request.get("mode").equals("VERSIONLIST")) {
+				
+				user = "admin";
+				
+				System.out.println("\n------------------------------------------------------ .:GESTIONE VERSIONI:. -------------------------------------------------\n");
+				System.out.println("ID\tData");
+				System.out.println("--------------------------------------------------------------------------------------------------------------------------------\n");
+				
+				List<VersionDTO> versions = (List<VersionDTO>) request.get("versions");
+				for (VersionDTO v: versions)
+					System.out.println(v + "\n");
+		
+			} else {
+			
+				user = "user";
+				//L'utente non visualizza la lista versioni
+				
+			}
 		}
 	}
+	
+	
 	@Override
 	public void showOptions() {
-		System.out.println("          Scegli l'operazione da effettuare:");
-		System.out.println("[L]eggi [I]nserisci [M]odifica [C]ancella [B]ack [E]sci");
+		if(user.equals("admin")) {
+
+			System.out.println("\nScegli l'operazione da effettuare:");
+			System.out.println("[L]eggi [I]nserisci [M]odifica [C]ancella [B]ack [E]sci");
+		
+		} else {
+			
+			System.out.println("\nScegli l'operazione da effettuare:");
+			System.out.println("[I]nserisci [B]ack [E]sci");
+			
+		}
 
 		this.choice = getInput();
 		
@@ -41,8 +63,15 @@ public class VersionView extends AbstractView {
 	@Override
 	public void submit() {
 		request = new Request();
-		request.put("choice", choice);
-		request.put("mode", "GETCHOICE");
+		
+		if(user.equals("admin")) {
+			request.put("choice", choice);
+			request.put("mode", "GETCHOICEADMIN");
+		} else {
+			request.put("choice", choice);
+			request.put("mode", "GETCHOICEUSER");
+		}
+		
 		MainDispatcher.getInstance().callAction("Version", "doControl", this.request);
 	}
 

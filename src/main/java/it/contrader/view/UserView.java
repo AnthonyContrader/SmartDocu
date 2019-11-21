@@ -86,18 +86,15 @@ public class UserView extends AbstractView {
 		request = new Request();
 		
 		if(user.equals("admin")) {
-			
 			request.put("choice", choice);
 			request.put("mode", "GETCHOICEADMIN");
-			MainDispatcher.getInstance().callAction("User", "doControl", request);
-		
 		} else {
-			
 			request.put("choice", choice);
-			request.put("mode", "GETCHOICEUSER");
-			MainDispatcher.getInstance().callAction("User", "doControl", request);
-		
+			request.put("mode", "GETCHOICEUSER");	
 		}
+		
+		MainDispatcher.getInstance().callAction("User", "doControl", request);
+
 	}
 
 }

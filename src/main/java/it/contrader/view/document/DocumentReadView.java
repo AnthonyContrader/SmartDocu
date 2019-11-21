@@ -28,7 +28,10 @@ public class DocumentReadView extends AbstractView {
 	public void showResults(Request request) {
 		if (request != null) {
 			DocumentDTO document = (DocumentDTO) request.get("document");
-			System.out.println(document);
+			System.out.println("Il documento selezionato ha i seguenti dettagli:\n");
+			System.out.println("Id\tTitolo\t\tDescrizione\t\tContenuto\t\t\t\t\t\tGenere\t\tData");
+			System.out.println("--------------------------------------------------------------------------------------------------------------------------------");
+			System.out.println(document + "\n");
 			MainDispatcher.getInstance().callView("Document", null);
 		}
 	}
@@ -39,7 +42,7 @@ public class DocumentReadView extends AbstractView {
 	 */
 	@Override
 	public void showOptions() {
-		System.out.println("Inserisci id del documento:");
+		System.out.print("\nInserisci id del documento: ");
 		id = Integer.parseInt(getInput());
 	}
 

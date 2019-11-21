@@ -20,11 +20,11 @@ public class CategoryUpdateView extends AbstractView {
 	}
 
 	/**
-	 * PRENDE LA RICHIESTA E SE NON è VUOTA TI RIPORTA ALLA CATEGORIA VIEW
+	 * PRENDE LA RICHIESTA E SE NON ï¿½ VUOTA TI RIPORTA ALLA CATEGORIA VIEW
 	 */
 	public void showResults(Request request) {
 		if (request!=null) {
-			System.out.println("Modifica andata a buon fine.\n");
+			System.out.println("\nModifica andata a buon fine.\n");
 			MainDispatcher.getInstance().callView("Category", null);
 		}
 	}
@@ -35,11 +35,11 @@ public class CategoryUpdateView extends AbstractView {
 	 */
 	public void showOptions() {
 		try {
-			System.out.println("Inserisci id della categoria:");
+			System.out.print("\nInserisci id della categoria: ");
 			id = Integer.parseInt(getInput());
-			System.out.println("Inserisci il tipo della categoria:");
+			System.out.print("Inserisci il tipo della categoria: ");
 			type = getInput();
-			System.out.println("Inserisci la descrizione della categoria:");
+			System.out.print("Inserisci la descrizione della categoria: ");
 			description = getInput();
 
 		} catch (Exception e) {

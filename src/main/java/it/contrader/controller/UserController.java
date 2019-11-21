@@ -18,8 +18,9 @@ public class UserController implements Controller {
 	 * definisce il pacchetto di vista user.
 	 */
 	private static String sub_package = "user.";
-	
 	private UserService userService;
+	
+	
 	/**
 	 * Costruisce un oggetto di tipo UserService per poterne usare i metodi
 	 */
@@ -141,8 +142,12 @@ public class UserController implements Controller {
 					break;
 					
 				default:
-					MainDispatcher.getInstance().callView("Login", null);
+					MainDispatcher.getInstance().callView("HomeAdmin", null);
+					break;
 			}
+			
+			MainDispatcher.getInstance().callView("HomeAdmin", null);
+
 			
 		case "GETCHOICEUSER":
 			switch (choice.toUpperCase()) {
@@ -156,11 +161,12 @@ public class UserController implements Controller {
 					break;
 					
 				default:
-					MainDispatcher.getInstance().callView("Login", null);
+					MainDispatcher.getInstance().callView("HomeUser", null);
+					break;
 			}
 				
-			default:
-				MainDispatcher.getInstance().callView("Login", null);
+			MainDispatcher.getInstance().callView("HomeUser", null);
+
 		}
 	}
 }

@@ -27,7 +27,7 @@ public class DocumentUpdateView extends AbstractView {
 	@Override
 	public void showResults(Request request) {
 		if (request!=null) {
-			System.out.println("Modifica andata a buon fine.\n");
+			System.out.println("\nModifica andata a buon fine.\n");
 			MainDispatcher.getInstance().callView("Document", null);
 		}
 	}
@@ -38,17 +38,17 @@ public class DocumentUpdateView extends AbstractView {
 	@Override
 	public void showOptions() {
 		try {
-			System.out.println("Inserisci id del documento da modificare:");
+			System.out.print("\nInserisci id del documento da modificare: ");
 			id = Integer.parseInt(getInput());
-			System.out.println("Inserisci il titolo del documento:");
+			System.out.print("Inserisci il titolo del documento: ");
 			title = getInput();
-			System.out.println("Inserisci la descrizione del documento:");
+			System.out.print("Inserisci la descrizione del documento: ");
 			description = getInput();
-			System.out.println("Inserisci il contenuto del documento:");
+			System.out.print("Inserisci il contenuto del documento: ");
 			content = getInput();
-			System.out.println("Inserisci il genere del documento:");
+			System.out.print("Inserisci il genere del documento: ");
 			genre = getInput();
-			System.out.println("Inserisci la data di pubblicazione del documento:");
+			System.out.print("Inserisci la data di pubblicazione del documento: ");
 			date = getInput();
 		} catch (Exception e) {
 

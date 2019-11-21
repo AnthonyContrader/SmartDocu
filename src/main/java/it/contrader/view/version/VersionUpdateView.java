@@ -17,16 +17,16 @@ public class VersionUpdateView extends AbstractView {
 	
 	public void showResults(Request request) {
 		if (request!=null) {
-			System.out.println("Modifica andata a buon fine.\n");
+			System.out.println("\nModifica andata a buon fine.\n");
 			MainDispatcher.getInstance().callView("Version", null);
 		}
 	}
 
 	public void showOptions() {
 		try {
-			System.out.println("Inserisci id della versione:");
+			System.out.print("\nInserisci id della versione: ");
 			id = Integer.parseInt(getInput());
-			System.out.println("Inserisci la data della versione:");
+			System.out.print("Inserisci la data della versione: ");
 			date = getInput();
 			
 		} catch (Exception e) {

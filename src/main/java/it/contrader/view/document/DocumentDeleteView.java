@@ -23,7 +23,7 @@ public class DocumentDeleteView extends AbstractView {
 	@Override
 	public void showResults(Request request) {
 		if (request!=null) {
-			System.out.println("Cancellazione andata a buon fine.\n");
+			System.out.println("\nCancellazione andata a buon fine.\n");
 			MainDispatcher.getInstance().callView("Document", null);
 		}
 	}
@@ -33,7 +33,7 @@ public class DocumentDeleteView extends AbstractView {
 	 */
 	@Override
 	public void showOptions() {
-			System.out.println("Inserisci id del documento:");
+			System.out.print("Inserisci id del documento: ");
 			id = Integer.parseInt(getInput());
 
 	}

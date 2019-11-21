@@ -14,16 +14,31 @@ import it.contrader.model.Document;
 
 public class DocumentConverter {
 	
+	/**
+	 * 
+	 * @param entita' document
+	 * @return dto document
+	 */
 	public DocumentDTO toDTO(Document document) {
 		DocumentDTO documentDTO = new DocumentDTO(document.getId(), document.getTitle(), document.getDescription(), document.getContent(), document.getGenre(), document.getDate());
 		return documentDTO;
 	}
 	
+	/**
+	 * 
+	 * @param documentDTO
+	 * @return entita' document
+	 */
 	public Document toEntity(DocumentDTO documentDTO) {
 		Document document = new Document(documentDTO.getId(), documentDTO.getTitle(), documentDTO.getDescription(), documentDTO.getContent(), documentDTO.getGenre(), documentDTO.getDate());
 		return document;
 	}
 	
+	/**
+	 * 
+	 * @param tutte entita' document
+	 * @return tutti documentDTO
+	 */
 	public List<DocumentDTO> toDTOList(List<Document> documentList){
 		List<DocumentDTO> documentDTOList = new ArrayList<DocumentDTO>();
 		for(Document document : documentList) {

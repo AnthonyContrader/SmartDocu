@@ -22,8 +22,8 @@ public class DocumentDAO {
 	private final String QUERY_ALL    = "SELECT * FROM document";
 	private final String QUERY_CREATE = "INSERT INTO document (title, description, content, genre, date) VALUES (?,?,?,?,?)";
 	private final String QUERY_READ   = "SELECT * FROM document WHERE id=?";
-	private final String QUERY_UPDATE = "UPDATE user SET title=?, description=?, content=?, genre=?, date=? WHERE id=?";
-	private final String QUERY_DELETE = "DELETE FROM user WHERE id=?";
+	private final String QUERY_UPDATE = "UPDATE document SET title=?, description=?, content=?, genre=?, date=? WHERE id=?";
+	private final String QUERY_DELETE = "DELETE FROM document WHERE id=?";
 	
 	public DocumentDAO() {
 		
@@ -32,8 +32,7 @@ public class DocumentDAO {
 	
 	/**
 	 * 
-	 * @param userToInsert
-	 * @return la lista di tutti i documenti
+	 * @return la lista di documenti
 	 */
 	public List<Document> getAll() {
 		List<Document> documentsList = new ArrayList<>();

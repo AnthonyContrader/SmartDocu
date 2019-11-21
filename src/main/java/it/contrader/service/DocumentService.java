@@ -26,7 +26,7 @@ public class DocumentService {
 
 	/**
 	 * 
-	 * @return lista DTO
+	 * @return lista documentDTO
 	 */
 	public List<DocumentDTO> getAll() {
 		return documentConverter.toDTOList(documentDAO.getAll());
@@ -36,7 +36,7 @@ public class DocumentService {
 	/**
 	 * 
 	 * @param id
-	 * @return oggetto DTO
+	 * @return documentDTO corrispondente
 	 */
 	public DocumentDTO read(int id) {
 		return documentConverter.toDTO(documentDAO.read(id));

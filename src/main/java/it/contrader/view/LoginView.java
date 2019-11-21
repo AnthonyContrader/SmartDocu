@@ -6,7 +6,6 @@ import it.contrader.main.MainDispatcher;
 public class LoginView extends AbstractView {
 
 	private String username;
-	
 	private String password;
 
 	public void showResults(Request request) {
@@ -17,12 +16,12 @@ public class LoginView extends AbstractView {
 	 */
 	public void showOptions() {
 		
-		System.out.println("----- .:LOGIN:. ----");
+		System.out.println("----------------------------------------------------- .:LOGIN:. ---------------------------------------------------------------");
 		
-		System.out.println(" Nome utente:");
+		System.out.print("\nUsername: ");
 		this.username = getInput();
 		
-		System.out.println(" Password:");
+		System.out.print("Password: ");
 		this.password = getInput();
 	}
 
@@ -32,7 +31,7 @@ public class LoginView extends AbstractView {
 	public void submit() {
 		
 		Request request = new Request();
-		
+				
 		request.put("username", username);
 		request.put("password", password);
 		

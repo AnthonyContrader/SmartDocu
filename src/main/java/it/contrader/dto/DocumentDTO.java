@@ -88,7 +88,7 @@ public class DocumentDTO {
 	
 	@Override
 	public String toString() {
-		return  id + "\t"  + title +"\t\t" + description +"\t\t" + content +"\t\t" + genre + "\t\t" + date;
+		return  id + "\t"  + title +"\t\t" + description +"\t\t" + content +"\t\t\t" + genre + "\t" + date;
 	}
 
 }

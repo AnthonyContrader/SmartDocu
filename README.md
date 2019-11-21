@@ -1,2 +1,2 @@
-# SmartDocu
-SmartDocu
+# SAMPLE
+Sample Projects

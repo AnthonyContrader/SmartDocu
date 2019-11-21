@@ -28,7 +28,6 @@ public class UserController implements Controller {
 	}
 	
 	
-	
 	/**
 	 * Metodo dell'interfaccia Controller. Estrae dalla request la mode
 	 * (che riceve dalle view specifiche e pu� essere la richesta di una 
@@ -153,7 +152,7 @@ public class UserController implements Controller {
 					break;
 	
 				case "B":
-					MainDispatcher.getInstance().callView("HomeAdmin", null);
+					MainDispatcher.getInstance().callView("HomeUser", null);
 					break;
 					
 				default:

@@ -23,6 +23,7 @@ public class HomeUserView extends AbstractView{
 		 System.out.println("----------------------------------------------------- .:MENU:. ----------------------------------------------------------------\n");
 	     System.out.println("Seleziona cosa vuoi gestire:");
 	     System.out.println("[U]tente [D]ocumento [C]ategoria [V]ersione [E]sci");
+	     	     
 	     //Il metodo che salva l'input nella stringa choice.
 	     //getInput() � definito in AbstractView.
 	     choice = this.getInput();
@@ -30,6 +31,8 @@ public class HomeUserView extends AbstractView{
 
 	@Override
 	public void submit() {
+		
+		request = new Request();
 
 		switch (choice) {
 		case "u":

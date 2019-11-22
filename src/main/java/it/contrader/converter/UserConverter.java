@@ -8,15 +8,18 @@ import it.contrader.model.User;
 
 /**
  * 
- * @author Vittorio, De Santis 
+ * @author Vittorio
+ * 
+ * Implementando questa l'interfaccia converter la classe UserConverter è OBBLIGATA ad implementarne i metodi
  *
  */
-public class UserConverter   {
+public class UserConverter  implements Converter<User, UserDTO> {
 	
 	/**
 	 * Crea un oggetto di tipo UserDTO e lo riempie con i campi del parametro user di tipo User.
 	 * Notare l'uso del metodo get() per ottenere il valore dell'attributo-
 	 */
+	@Override
 	public UserDTO toDTO(User user) {
 		UserDTO userDTO = new UserDTO(user.getId(), user.getUsername(), user.getPassword(), user.getUsertype());
 		return userDTO;
@@ -26,6 +29,7 @@ public class UserConverter   {
 	 * Crea un oggetto di tipo User e lo riempie con i campi del parametro user di tipo UserDTO.
 	 * Notare l'uso del metodo get() per ottenere il valore dell'attributo-
 	 */
+	@Override
 	public User toEntity(UserDTO userDTO) {
 		User user = new User(userDTO.getId(), userDTO.getUsername(), userDTO.getPassword(), userDTO.getUsertype());
 		return user;
@@ -34,6 +38,7 @@ public class UserConverter   {
 	/**
 	 * Metodo per convertire le liste di User.
 	 */
+	@Override
 	public List<UserDTO> toDTOList(List<User> userList) {
 		//Crea una lista vuota.
 		List<UserDTO> userDTOList = new ArrayList<UserDTO>();

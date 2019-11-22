@@ -1,9 +1,10 @@
 package it.contrader.dao;
 
 import java.sql.*;
+
 import java.util.ArrayList;
 import java.util.List;
-import it.contrader.main.ConnectionSingleton;
+import it.contrader.utils.ConnectionSingleton;
 import it.contrader.model.User;
 
 /**
@@ -12,7 +13,7 @@ import it.contrader.model.User;
  *
  *Per i dettagli della classe vedi Guida sez 6: DAO
  */
-public class UserDAO {
+public class UserDAO implements DAO<User> {
 
 	private final String QUERY_ALL = "SELECT * FROM user";
 	private final String QUERY_CREATE = "INSERT INTO user (username, password, usertype) VALUES (?,?,?)";

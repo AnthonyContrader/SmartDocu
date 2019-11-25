@@ -52,7 +52,7 @@ public class UserView extends AbstractView {
 				System.out.println("----------------------------------------------------------------------------------------------------------------------------------");
 				
 				System.out.println(request.get("username")+"\t\t\t"+request.get("password")+"\n\n");
-				
+
 			}
 		}
 		

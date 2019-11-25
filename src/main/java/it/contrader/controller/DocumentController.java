@@ -98,7 +98,7 @@ public class DocumentController implements Controller{
 			//Arriva qui dal DocumentView
 			case "DOCUMENTLIST":
 				List<DocumentDTO> documentsDTO = documentService.getAll();
-				//Impacchetta la request con la lista degli user
+				//Impacchetta la request con la lista dei documenti
 				request.put("documents", documentsDTO);
 				MainDispatcher.getInstance().callView("Document", request);
 				break;

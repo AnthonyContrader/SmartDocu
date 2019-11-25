@@ -12,7 +12,7 @@ public class VersionDAO {
 	private final String QUERY_ALL = "SELECT * FROM version";
 	private final String QUERY_CREATE = "INSERT INTO version (date) VALUES (?)";
 	private final String QUERY_READ = "SELECT * FROM version WHERE id=?";
-	private final String QUERY_UPDATE = "UPDATE version SET date=?,WHERE id=?";
+	private final String QUERY_UPDATE = "UPDATE version SET date=? WHERE id=?";
 	private final String QUERY_DELETE = "DELETE FROM version WHERE id=?";
 	
 

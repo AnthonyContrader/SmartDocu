@@ -110,7 +110,7 @@ public class CategoryDAO {
 				PreparedStatement preparedStatement = (PreparedStatement) connection.prepareStatement(QUERY_UPDATE);
 				preparedStatement.setString(1, categoryToUpdate.getType());
 				preparedStatement.setString(2, categoryToUpdate.getDescription());
-				preparedStatement.setInt(4, categoryToUpdate.getId());
+				preparedStatement.setInt(3, categoryToUpdate.getId());
 				int a = preparedStatement.executeUpdate();
 				if (a > 0)
 					return true;

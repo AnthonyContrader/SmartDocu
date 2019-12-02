@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1" import="java.util.List"
-	import="it.contrader.dto.UserDTO"%>
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Home Admin</title>
+<title>Home User</title>
 <link href="css/vittoriostyle.css" rel="stylesheet">
 </head>
 <body>
@@ -13,10 +12,9 @@
 
 
 <div class="navbar">
-  <a class="active" href="homeadmin.jsp">Home</a>
-  <a href="UserServlet?mode=userlist">Users</a>
-  <a href="CategoryServlet?mode=categorylist">Categorie</a>
-  <a href="ExtensionServlet?mode=extensionlist">Estenzioni</a>
+  <a class="active" href="homeuser.jsp">Home</a>
+  <a href="UserServlet?mode=userlist">User</a>
+  <a href="FolderServlet?mode=folderlist">Folder</a>
   <a href="LogoutServlet" id="logout">Logout</a>
   
 </div>
@@ -30,6 +28,7 @@
 
 
 <%@ include file="css/footer.jsp" %>
+
 
 </body>
 </html>

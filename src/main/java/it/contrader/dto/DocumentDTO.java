@@ -2,11 +2,6 @@ package it.contrader.dto;
 
 import java.util.Date;
 
-import it.contrader.model.Category;
-import it.contrader.model.Extension;
-import it.contrader.model.Folder;
-import it.contrader.model.User;
-import it.contrader.model.Version;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,14 +21,14 @@ public class DocumentDTO {
 	
 	private Date datePub;
 	
-	private User user;
+	private UserDTO userDTO;
 	
-	private Folder folder;
+	private FolderDTO folderDTO;
 	
-	private Category category;
+	private CategoryDTO categoryDTO;
 	
-	private Version version;
+	private VersionDTO versionDTO;
 	
-	private Extension extension;
+	private ExtensionDTO extensionDTO;
 
 }

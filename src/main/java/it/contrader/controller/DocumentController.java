@@ -11,11 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import it.contrader.converter.CategoryConverter;
-import it.contrader.converter.ExtensionConverter;
-import it.contrader.converter.FolderConverter;
-import it.contrader.converter.UserConverter;
-import it.contrader.converter.VersionConverter;
 import it.contrader.dto.CategoryDTO;
 import it.contrader.dto.DocumentDTO;
 import it.contrader.dto.ExtensionDTO;
@@ -50,24 +45,7 @@ public class DocumentController {
 	
 	@Autowired
 	private ExtensionService extensionService;
-	
-	@Autowired
-	private UserConverter userConverter;
-	
-	@Autowired
-	private FolderConverter folderConverter;
-	
-	@Autowired
-	private CategoryConverter categoryConverter;
-	
-	@Autowired
-	private VersionConverter versionConverter;
-	
-	@Autowired
-	private ExtensionConverter extensionConverter;
-	
-
-	
+		
 	
 	@GetMapping("/getall")
 	public String getAll(HttpServletRequest request) {
@@ -110,11 +88,11 @@ public class DocumentController {
 		dto.setDatePub(datePub);
 		
 		
-		dto.setUser(userConverter.toEntity(u));
-		dto.setFolder(folderConverter.toEntity(f));
-		dto.setCategory(categoryConverter.toEntity(c));
-		dto.setVersion(versionConverter.toEntity(v));
-		dto.setExtension(extensionConverter.toEntity(e));
+		dto.setUserDTO(u);
+		dto.setFolderDTO(f);
+		dto.setCategoryDTO(c);
+		dto.setVersionDTO(v);
+		dto.setExtensionDTO(e);
 		
 		documentService.insert(dto);
 		setAll(request);
@@ -170,11 +148,11 @@ public class DocumentController {
 		dto.setGenre(genre);
 		dto.setDatePub(datePub);
 		
-		dto.setUser(userConverter.toEntity(u));
-		dto.setFolder(folderConverter.toEntity(f));
-		dto.setCategory(categoryConverter.toEntity(c));
-		dto.setVersion(versionConverter.toEntity(v));
-		dto.setExtension(extensionConverter.toEntity(e));
+		dto.setUserDTO(u);
+		dto.setFolderDTO(f);
+		dto.setCategoryDTO(c);
+		dto.setVersionDTO(v);
+		dto.setExtensionDTO(e);
 		
 		documentService.update(dto);
 		setAll(request);

@@ -15,7 +15,7 @@ public class VersionDTO {
 
 	private Long id;
 	
-	private Date date;
+	private Date dateMod;
 	
 	private String number;
 	

@@ -12,7 +12,7 @@ public class VersionConverter extends AbstractConverter<Version,VersionDTO> {
 	public Version toEntity (VersionDTO versionDTO) {
 		Version version=null;
 		if (versionDTO !=null) {
-			version = new Version(versionDTO.getId(), versionDTO.getDate(), versionDTO.getDocument(),versionDTO.getNumber(),versionDTO.getContent());
+			version = new Version(versionDTO.getId(), versionDTO.getDateMod(),versionDTO.getNumber(),versionDTO.getContent(),versionDTO.getDocument());
 		}
 		
 		return version;
@@ -22,7 +22,7 @@ public class VersionConverter extends AbstractConverter<Version,VersionDTO> {
 	public VersionDTO toDTO (Version version) {
 		VersionDTO versionDTO = null;
 		if (version !=null) {
-			versionDTO = new VersionDTO(version.getId(), version.getDate(), version.getDocument(),version.getNumber(),version.getContent());
+			versionDTO = new VersionDTO(version.getId(), version.getDateMod(),version.getNumber(),version.getContent(),version.getDocument());
 		}
 		return versionDTO;
 		}

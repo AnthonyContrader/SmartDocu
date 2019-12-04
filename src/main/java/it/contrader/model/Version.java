@@ -28,7 +28,7 @@ public class Version {
 private Long id;
 
 @Column
-private Date date;
+private Date dateMod;
 
 private String number;
 

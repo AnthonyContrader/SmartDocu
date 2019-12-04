@@ -47,12 +47,12 @@ public String preUpdate(HttpServletRequest request, @RequestParam("id") Long id)
 }
 
 @PostMapping("/update")
-public String update(HttpServletRequest request, @RequestParam("id") Long id, @RequestParam("date") Date date,
+public String update(HttpServletRequest request, @RequestParam("id") Long id, @RequestParam("dateMod") Date dateMod,
 		@RequestParam("number") String number, @RequestParam("content") String content, @RequestParam("document") Document document) {
 
 	VersionDTO dto = new VersionDTO();
 	dto.setId(id);
-	dto.setDate(date);
+	dto.setDateMod(dateMod);
 	dto.setNumber(number);
 	dto.setContent(content);
 	dto.setDocument(document);
@@ -63,12 +63,12 @@ public String update(HttpServletRequest request, @RequestParam("id") Long id, @R
 }
 
 @PostMapping("/insert")
-public String insert(HttpServletRequest request, @RequestParam("id") Long id, @RequestParam("date") Date date,
+public String insert(HttpServletRequest request, @RequestParam("id") Long id, @RequestParam("dateMod") Date dateMod,
 		@RequestParam("number") String number, @RequestParam("content") String content, @RequestParam("document") Document document) {
 
 	VersionDTO dto = new VersionDTO();
 	dto.setId(id);
-	dto.setDate(date);
+	dto.setDateMod(dateMod);
 	dto.setNumber(number);
 	dto.setContent(content);
 	dto.setDocument(document);

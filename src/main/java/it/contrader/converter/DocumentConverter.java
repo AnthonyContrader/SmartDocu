@@ -12,6 +12,7 @@ public class DocumentConverter extends AbstractConverter<Document, DocumentDTO> 
 	@Override
 	public Document toEntity(DocumentDTO documentDTO) {
 		Document document = null;
+		
 		if (documentDTO != null) {
 			document = new Document(documentDTO.getId(), documentDTO.getTitle(), documentDTO.getDescription(), documentDTO.getGenre(), documentDTO.getDatePub(), documentDTO.getUser(), documentDTO.getFolder(), documentDTO.getCategory(), documentDTO.getVersion(), documentDTO.getExtension());
 		}

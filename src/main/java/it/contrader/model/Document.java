@@ -50,7 +50,7 @@ public class Document {
 	private Category category;
 	
 	@OneToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_category")
+	@JoinColumn(name = "id_version")
 	private Version version;
 	
 	@ManyToOne(fetch = FetchType.LAZY)

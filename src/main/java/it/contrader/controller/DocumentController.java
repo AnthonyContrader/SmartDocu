@@ -11,15 +11,23 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import it.contrader.converter.CategoryConverter;
+import it.contrader.converter.ExtensionConverter;
+import it.contrader.converter.FolderConverter;
+import it.contrader.converter.UserConverter;
+import it.contrader.converter.VersionConverter;
+import it.contrader.dto.CategoryDTO;
 import it.contrader.dto.DocumentDTO;
+import it.contrader.dto.ExtensionDTO;
+import it.contrader.dto.FolderDTO;
 import it.contrader.dto.UserDTO;
-import it.contrader.model.Category;
-import it.contrader.model.Extension;
-import it.contrader.model.Folder;
-import it.contrader.model.User;
-import it.contrader.model.Version;
+import it.contrader.dto.VersionDTO;
+import it.contrader.service.CategoryService;
 import it.contrader.service.DocumentService;
+import it.contrader.service.ExtensionService;
+import it.contrader.service.FolderService;
 import it.contrader.service.UserService;
+import it.contrader.service.VersionService;
 
 @Controller
 @RequestMapping("/document")
@@ -35,10 +43,30 @@ public class DocumentController {
 	private FolderService folderService;
 	
 	@Autowired
+	private CategoryService categoryService;
+	
+	@Autowired
 	private VersionService versionService;
 	
 	@Autowired
 	private ExtensionService extensionService;
+	
+	@Autowired
+	private UserConverter userConverter;
+	
+	@Autowired
+	private FolderConverter folderConverter;
+	
+	@Autowired
+	private CategoryConverter categoryConverter;
+	
+	@Autowired
+	private VersionConverter versionConverter;
+	
+	@Autowired
+	private ExtensionConverter extensionConverter;
+	
+
 	
 	
 	@GetMapping("/getall")
@@ -80,11 +108,13 @@ public class DocumentController {
 		dto.setDescription(description);
 		dto.setGenre(genre);
 		dto.setDatePub(datePub);
-		dto.setUser(u);
-		dto.setFolder(f);
-		dto.setCategory(c);
-		dto.setVersion(v);
-		dto.setExtension(e);
+		
+		
+		dto.setUser(userConverter.toEntity(u));
+		dto.setFolder(folderConverter.toEntity(f));
+		dto.setCategory(categoryConverter.toEntity(c));
+		dto.setVersion(versionConverter.toEntity(v));
+		dto.setExtension(extensionConverter.toEntity(e));
 		
 		documentService.insert(dto);
 		setAll(request);
@@ -139,11 +169,12 @@ public class DocumentController {
 		dto.setDescription(description);
 		dto.setGenre(genre);
 		dto.setDatePub(datePub);
-		dto.setUser(u);
-		dto.setFolder(f);
-		dto.setCategory(c);
-		dto.setVersion(v);
-		dto.setExtension(e);
+		
+		dto.setUser(userConverter.toEntity(u));
+		dto.setFolder(folderConverter.toEntity(f));
+		dto.setCategory(categoryConverter.toEntity(c));
+		dto.setVersion(versionConverter.toEntity(v));
+		dto.setExtension(extensionConverter.toEntity(e));
 		
 		documentService.update(dto);
 		setAll(request);

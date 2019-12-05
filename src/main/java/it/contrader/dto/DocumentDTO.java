@@ -27,8 +27,6 @@ public class DocumentDTO {
 	
 	private CategoryDTO categoryDTO;
 	
-	private VersionDTO versionDTO;
-	
 	private ExtensionDTO extensionDTO;
 
 }

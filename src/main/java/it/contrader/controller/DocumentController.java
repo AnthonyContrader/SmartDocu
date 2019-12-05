@@ -16,13 +16,11 @@ import it.contrader.dto.DocumentDTO;
 import it.contrader.dto.ExtensionDTO;
 import it.contrader.dto.FolderDTO;
 import it.contrader.dto.UserDTO;
-import it.contrader.dto.VersionDTO;
 import it.contrader.service.CategoryService;
 import it.contrader.service.DocumentService;
 import it.contrader.service.ExtensionService;
 import it.contrader.service.FolderService;
 import it.contrader.service.UserService;
-import it.contrader.service.VersionService;
 
 @Controller
 @RequestMapping("/document")
@@ -39,9 +37,6 @@ public class DocumentController {
 	
 	@Autowired
 	private CategoryService categoryService;
-	
-	@Autowired
-	private VersionService versionService;
 	
 	@Autowired
 	private ExtensionService extensionService;
@@ -70,8 +65,6 @@ public class DocumentController {
 	 	Long idFolder,
 		@RequestParam("id_category")
 		Long idCategory,
-		@RequestParam("id_version")
-		Long idVersion,
 		@RequestParam("id_extension")
 		Long idExtension) {
 		
@@ -79,7 +72,6 @@ public class DocumentController {
 		UserDTO u = userService.read(idUser);
 		FolderDTO f = folderService.read(idFolder);
 		CategoryDTO c = categoryService.read(idCategory);
-		VersionDTO v = versionService.read(idVersion);
 		ExtensionDTO e = extensionService.read(idExtension);
 		
 		dto.setTitle(title);
@@ -91,7 +83,6 @@ public class DocumentController {
 		dto.setUserDTO(u);
 		dto.setFolderDTO(f);
 		dto.setCategoryDTO(c);
-		dto.setVersionDTO(v);
 		dto.setExtensionDTO(e);
 		
 		documentService.insert(dto);
@@ -131,8 +122,6 @@ public class DocumentController {
 	 	Long idFolder,
 		@RequestParam("id_category")
 		Long idCategory,
-		@RequestParam("id_version")
-		Long idVersion,
 		@RequestParam("id_extension")
 		Long idExtension) {
 
@@ -140,7 +129,6 @@ public class DocumentController {
 		UserDTO u = userService.read(idUser);
 		FolderDTO f = folderService.read(idFolder);
 		CategoryDTO c = categoryService.read(idCategory);
-		VersionDTO v = versionService.read(idVersion);
 		ExtensionDTO e = extensionService.read(idExtension);
 		
 		dto.setTitle(title);
@@ -151,7 +139,6 @@ public class DocumentController {
 		dto.setUserDTO(u);
 		dto.setFolderDTO(f);
 		dto.setCategoryDTO(c);
-		dto.setVersionDTO(v);
 		dto.setExtensionDTO(e);
 		
 		documentService.update(dto);

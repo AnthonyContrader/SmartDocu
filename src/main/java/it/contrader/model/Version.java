@@ -1,39 +1,39 @@
 package it.contrader.model;
 
-import java.sql.Date;
+import java.util.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Entity
-
 public class Version {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-@Id
-@GeneratedValue(strategy = GenerationType.IDENTITY)
-private Long id;
+	@Temporal(TemporalType.DATE)
+	private Date dateMod;
 
-@Column
-private Date dateMod;
+	private String number;
 
-private String number;
+	private String content;
 
-private String content;
-
-private Document document;
+	@ManyToOne
+	@JoinColumn(name = "id_document")
+	private Document document;
 
 }

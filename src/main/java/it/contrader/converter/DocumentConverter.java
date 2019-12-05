@@ -20,9 +20,6 @@ public class DocumentConverter extends AbstractConverter<Document, DocumentDTO> 
 	private CategoryConverter categoryConverter;
 	
 	@Autowired
-	private VersionConverter versionConverter;
-	
-	@Autowired
 	private ExtensionConverter extensionConverter;
 	
 	
@@ -51,10 +48,6 @@ public class DocumentConverter extends AbstractConverter<Document, DocumentDTO> 
 			
 			if(documentDTO.getCategoryDTO()!= null) {
 				document.setCategory(categoryConverter.toEntity(documentDTO.getCategoryDTO()));
-			}
-			
-			if(documentDTO.getVersionDTO()!= null) {
-				document.setVersion(versionConverter.toEntity(documentDTO.getVersionDTO()));
 			}
 			
 			if(documentDTO.getExtensionDTO()!= null) {
@@ -92,10 +85,6 @@ public class DocumentConverter extends AbstractConverter<Document, DocumentDTO> 
 			
 			if(documentDTO.getCategoryDTO()!= null) {
 				documentDTO.setCategoryDTO(categoryConverter.toDTO(document.getCategory()));
-			}
-			
-			if(documentDTO.getVersionDTO()!= null) {
-				documentDTO.setVersionDTO(versionConverter.toDTO(document.getVersion()));
 			}
 			
 			if(documentDTO.getExtensionDTO()!= null) {

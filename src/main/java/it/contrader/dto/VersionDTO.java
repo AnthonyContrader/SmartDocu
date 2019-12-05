@@ -1,8 +1,7 @@
 package it.contrader.dto;
 
-import java.sql.Date;
+import java.util.Date;
 
-import it.contrader.model.Document;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,7 +9,6 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-
 public class VersionDTO {
 
 	private Long id;
@@ -21,7 +19,7 @@ public class VersionDTO {
 	
 	private String content;
 	
-	private Document document;
+	private DocumentDTO documentDTO;
 	
 	
 }

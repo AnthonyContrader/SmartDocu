@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,10 +50,11 @@ public class VersionController {
 	@PostMapping("/update")
 	public String update(HttpServletRequest request, 
 			@RequestParam("id") Long id, 
+			@DateTimeFormat(iso = ISO.DATE)
 			@RequestParam("dateMod") Date dateMod,
 			@RequestParam("number") String number, 
 			@RequestParam("content") String content,
-			@RequestParam("id_document") Long idDocument) {
+			@RequestParam("document") Long idDocument) {
 
 		VersionDTO dto = new VersionDTO();
 		DocumentDTO d = documentService.read(idDocument);
@@ -68,11 +71,12 @@ public class VersionController {
 	}
 
 	@PostMapping("/insert")
-	public String insert(HttpServletRequest request,  
+	public String insert(HttpServletRequest request, 
+			@DateTimeFormat(iso = ISO.DATE)
 			@RequestParam("dateMod") Date dateMod,
 			@RequestParam("number") String number, 
 			@RequestParam("content") String content,
-			@RequestParam("id_document") Long idDocument) {
+			@RequestParam("document") Long idDocument) {
 
 		VersionDTO dto = new VersionDTO();
 		DocumentDTO d = documentService.read(idDocument);

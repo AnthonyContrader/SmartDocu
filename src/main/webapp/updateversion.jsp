@@ -61,10 +61,10 @@
 		</div>
 		<div class="row">
 			<div class="col-25">
-				<label for="idDocument">Document</label>
+				<label for="document">Document</label>
 			</div>
 			<div class="col-75">
-				<input type="text" id="idDocument" name="idDocument"
+				<input type="text" id="document" name="document"
 					placeholder="inserisci Document">
 			</div>
 				<input type="hidden" name="id" value =<%=v.getId() %>>

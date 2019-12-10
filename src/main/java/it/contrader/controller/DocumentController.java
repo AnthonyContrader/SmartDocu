@@ -125,15 +125,16 @@ public class DocumentController {
 		String description,
 		@RequestParam("genre")
 		String genre,
+		@DateTimeFormat(iso = ISO.DATE)
 		@RequestParam("datePub")
 		Date datePub,
-		@RequestParam("id_user")
+		@RequestParam("user")
 	 	Long idUser,
-		@RequestParam("id_folder")
+		@RequestParam("folder")
 	 	Long idFolder,
-		@RequestParam("id_category")
+		@RequestParam("category")
 		Long idCategory,
-		@RequestParam("id_extension")
+		@RequestParam("extension")
 		Long idExtension) {
 
 		DocumentDTO dto = new DocumentDTO();

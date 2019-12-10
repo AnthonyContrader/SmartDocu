@@ -20,9 +20,9 @@
 
 
 	<div class="navbar">
-		<a class="active" href="/homeuser.jsp">Home</a> 
+		<a class="active" href="/homeuser.jsp">Home</a>
 		<a href=/user/getall>Users</a>
-		<a href="/foldersuser.jsp">Folders</a>
+		<a href="/folder/getall">Folders</a> 
 		<a href="/document/getall">Documents</a>
 		
 		<a href="/user/logout" id="logout">Logout</a>

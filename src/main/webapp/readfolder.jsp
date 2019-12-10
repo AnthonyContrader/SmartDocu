@@ -13,8 +13,13 @@
 <body>
 	<%@ include file="./css/header.jsp"%>
 	<div class="navbar">
-		<a href="/homeadmin.jsp">Home</a> 
-		<a class="active" href="/folder/getall">Folders</a>
+		<a href="/homeadmin.jsp">Home</a>
+		<a href=/user/getall>Users</a>
+		<a class="active" href="/folder/getall">Folders</a> 
+		<a href="/document/getall">Documents</a>
+		<a href="/version/getall">Versions</a> 
+		<a href="/category/getall">Categories</a>
+		<a href="/extension/getall">Extensions</a> 
 		<a href="/user/logout" id="logout">Logout</a>
 	</div>
 	<br>
@@ -32,7 +37,7 @@
 			</tr>
 			<tr>
 				<td><%=f.getId()%></td>
-				<td><%=f.getNome()%></td>
+				<td><%=f.getName()%></td>
 
 			</tr>
 		</table>

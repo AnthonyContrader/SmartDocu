@@ -100,6 +100,13 @@ public class DocumentController {
 		request.getSession().setAttribute("dto", documentService.read(id));
 		return "readdocument";
 	}
+	
+	@GetMapping("/readbyfolderid")
+	public String readByIdFolder(HttpServletRequest request, @RequestParam("id") Long id) {
+		request.getSession().setAttribute("dto", documentService.findByFolderId(id));
+		return "readdocumentbyfolderid";
+	}
+	
 
 	@GetMapping("/preupdate")
 	public String preUpdate(HttpServletRequest request, @RequestParam("id") Long id) {

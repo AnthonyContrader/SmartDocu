@@ -11,6 +11,6 @@ public class FolderDTO {
 
 	private Long id;
 
-	private String nome;
+	private String name;
 
 }

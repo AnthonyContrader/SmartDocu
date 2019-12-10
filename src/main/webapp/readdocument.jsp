@@ -15,9 +15,13 @@
 	<%@ include file="./css/header.jsp"%>
 
 	<div class="navbar">
-		<a href="/homeadmin.jsp">Home</a> 
-		<a class="active" href="/document/getall">Documents</a> 
-		
+		<a href="/homeadmin.jsp">Home</a>
+		<a href=/user/getall>Users</a>
+		<a href="/folder/getall">Folders</a> 
+		<a class="active" href="/document/getall">Documents</a>
+		<a href="/version/getall">Versions</a> 
+		<a href="/category/getall">Categories</a>
+		<a href="/extension/getall">Extensions</a> 
 		<a href="/user/logout" id="logout">Logout</a>
 	</div>
 	<div class="main">
@@ -46,7 +50,7 @@
 				<td><%=d.getGenre()%></td>
 				<td><%=d.getDatePub() %></td>
 				<td><%=d.getUserDTO().getUsername() %></td>
-				<td><%=d.getFolderDTO().getNome() %></td>
+				<td><%=d.getFolderDTO().getName() %></td>
 				<td><%=d.getCategoryDTO()%></td>
 				<td><%=d.getExtensionDTO().getType() %></td>
 					</tr>

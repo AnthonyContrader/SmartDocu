@@ -68,8 +68,7 @@ public class VersionController {
 	}
 
 	@PostMapping("/insert")
-	public String insert(HttpServletRequest request, 
-			@RequestParam("id") Long id, 
+	public String insert(HttpServletRequest request,  
 			@RequestParam("dateMod") Date dateMod,
 			@RequestParam("number") String number, 
 			@RequestParam("content") String content,
@@ -78,7 +77,6 @@ public class VersionController {
 		VersionDTO dto = new VersionDTO();
 		DocumentDTO d = documentService.read(idDocument);
 		
-		dto.setId(id);
 		dto.setDateMod(dateMod);
 		dto.setNumber(number);
 		dto.setContent(content);

@@ -11,9 +11,6 @@ import it.contrader.model.Document;
 @Transactional
 public interface DocumentRepository extends CrudRepository<Document, Long> {
 	
-	//byVersion Contenuto 
-	//dello user
-	
 	Document findByFolderId (Long id);
 
 }

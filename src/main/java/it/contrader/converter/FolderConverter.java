@@ -12,7 +12,7 @@ public class FolderConverter extends AbstractConverter<Folder, FolderDTO> {
 	public Folder toEntity(FolderDTO folderDTO) {
 		Folder folder = null;
 		if (folderDTO != null) {
-			folder = new Folder(folderDTO.getId(), folderDTO.getNome());
+			folder = new Folder(folderDTO.getId(), folderDTO.getName());
 		}
 
 		return folder;
@@ -22,7 +22,7 @@ public class FolderConverter extends AbstractConverter<Folder, FolderDTO> {
 	public FolderDTO toDTO(Folder folder) {
 		FolderDTO folderDTO = null;
 		if (folder != null) {
-			folderDTO = new FolderDTO(folder.getId(), folder.getNome());
+			folderDTO = new FolderDTO(folder.getId(), folder.getName());
 		}
 		return folderDTO;
 	}

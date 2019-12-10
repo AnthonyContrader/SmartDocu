@@ -18,6 +18,10 @@
 		<a href="/homeadmin.jsp">Home</a> 
 		<a href="/user/getall">Users</a> 
 		<a class="active" href="/folder/getall">Folders</a> 
+		<a href="/document/getall">Documents</a> 
+		<a href="/version/getall">Versions</a> 
+		<a href="/category/getall">Categories</a> 
+		<a href="/extension/getall">Extensions</a> 
 		<a href="/user/logout" id="logout">Logout</a>
 	</div>
 	<div class="main">
@@ -37,7 +41,7 @@
 				for (FolderDTO f : list) {
 			%>
 			<tr>
-				<td><a href="/folder/read?id=<%=f.getId()%>"> <%=f.getNome()%></a></td>
+				<td><a href="/folder/read?id=<%=f.getId()%>"> <%=f.getName()%></a></td>
 				<td><a href="/folder/preupdate?id=<%=f.getId()%>">Edit</a></td>
 
 

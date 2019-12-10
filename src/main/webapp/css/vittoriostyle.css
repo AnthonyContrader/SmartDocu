@@ -324,4 +324,14 @@ div.navbar a.active {
 	z-index: -1; opacity : .9;
 	width: 8%;
 }
+
+
+/*Folder*/
+i.fa.fa-folder {
+	padding: 12px 12px 25px 25px;
+	font-size: 100px;
+	color: #1e5945;	
+}
+
+
 }

@@ -9,7 +9,6 @@ import it.contrader.model.Version;
 
 @Repository
 @Transactional
-
 public interface VersionRepository extends CrudRepository<Version, Long> {
 
 }

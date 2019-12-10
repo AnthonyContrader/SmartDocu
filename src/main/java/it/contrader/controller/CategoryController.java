@@ -19,8 +19,6 @@ public class CategoryController {
 	@Autowired
 	private CategoryService service;
 
-
-
 	@GetMapping("/getall")
 	public String getAll(HttpServletRequest request) {
 		setAll(request);
@@ -41,14 +39,16 @@ public class CategoryController {
 	}
 
 	@PostMapping("/update")
-	public String update(HttpServletRequest request, @RequestParam("id") Long id, @RequestParam("type") String type,
+	public String update(HttpServletRequest request, 
+			@RequestParam("id") Long id, 
+			@RequestParam("type") String type,
 			@RequestParam("description") String description) {
 
 		CategoryDTO dto = new CategoryDTO();
 		dto.setId(id);
 		dto.setType(description);
 		dto.setDescription(description);
-		
+
 		service.update(dto);
 		setAll(request);
 		return "categories";
@@ -59,9 +59,11 @@ public class CategoryController {
 	public String insert(HttpServletRequest request, 
 			@RequestParam("type") String type,
 			@RequestParam("description") String description) {
+		
 		CategoryDTO dto = new CategoryDTO();
 		dto.setType(type);
 		dto.setDescription(description);
+		
 		service.insert(dto);
 		setAll(request);
 		return "categories";
@@ -72,8 +74,6 @@ public class CategoryController {
 		request.getSession().setAttribute("dto", service.read(id));
 		return "readcategory";
 	}
-
-
 
 	private void setAll(HttpServletRequest request) {
 		request.getSession().setAttribute("list", service.getAll());

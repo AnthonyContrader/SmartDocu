@@ -19,8 +19,6 @@ public class ExtensionController {
 	@Autowired
 	private ExtensionService service;
 
-
-
 	@GetMapping("/getall")
 	public String getAll(HttpServletRequest request) {
 		setAll(request);
@@ -41,13 +39,14 @@ public class ExtensionController {
 	}
 
 	@PostMapping("/update")
-	public String update(HttpServletRequest request, @RequestParam("id") Long id, @RequestParam("type") String type) {
-
+	public String update(HttpServletRequest request, 
+			@RequestParam("id") Long id, 
+			@RequestParam("type") String type) {
+		
 		ExtensionDTO dto = new ExtensionDTO();
 		dto.setId(id);
 		dto.setType(type);
-		
-		
+
 		service.update(dto);
 		setAll(request);
 		return "extensions";
@@ -56,8 +55,8 @@ public class ExtensionController {
 
 	@PostMapping("/insert")
 	public String insert(HttpServletRequest request, 
-			@RequestParam("type") String type,
-			@RequestParam("description") String description) {
+			@RequestParam("type") String type) {
+		
 		ExtensionDTO dto = new ExtensionDTO();
 		dto.setType(type);
 		service.insert(dto);
@@ -70,8 +69,6 @@ public class ExtensionController {
 		request.getSession().setAttribute("dto", service.read(id));
 		return "readextension";
 	}
-
-
 
 	private void setAll(HttpServletRequest request) {
 		request.getSession().setAttribute("list", service.getAll());

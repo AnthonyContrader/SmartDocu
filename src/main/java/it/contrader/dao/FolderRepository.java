@@ -9,7 +9,6 @@ import it.contrader.model.Folder;
 
 @Repository
 @Transactional
-
-public interface FolderRepository extends CrudRepository<Folder , Long> {
+public interface FolderRepository extends CrudRepository<Folder, Long> {
 
 }

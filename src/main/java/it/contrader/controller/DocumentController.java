@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -58,14 +60,15 @@ public class DocumentController {
 		@RequestParam("genre")
 		String genre,
 		@RequestParam("datePub")
+		@DateTimeFormat(iso = ISO.DATE)
 		Date datePub,
-		@RequestParam("id_user")
+		@RequestParam("user")
 	 	Long idUser,
-		@RequestParam("id_folder")
+		@RequestParam("folder")
 	 	Long idFolder,
-		@RequestParam("id_category")
+		@RequestParam("category")
 		Long idCategory,
-		@RequestParam("id_extension")
+		@RequestParam("extension")
 		Long idExtension) {
 		
 		DocumentDTO dto = new DocumentDTO();
@@ -73,6 +76,7 @@ public class DocumentController {
 		FolderDTO f = folderService.read(idFolder);
 		CategoryDTO c = categoryService.read(idCategory);
 		ExtensionDTO e = extensionService.read(idExtension);
+		
 		
 		dto.setTitle(title);
 		dto.setDescription(description);
@@ -130,6 +134,8 @@ public class DocumentController {
 		FolderDTO f = folderService.read(idFolder);
 		CategoryDTO c = categoryService.read(idCategory);
 		ExtensionDTO e = extensionService.read(idExtension);
+		
+		dto.setId(id);
 		
 		dto.setTitle(title);
 		dto.setDescription(description);

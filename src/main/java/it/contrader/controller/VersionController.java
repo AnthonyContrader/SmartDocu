@@ -18,7 +18,6 @@ import it.contrader.service.VersionService;
 
 @Controller
 @RequestMapping("/version")
-
 public class VersionController {
 
 	@Autowired
@@ -47,8 +46,11 @@ public class VersionController {
 	}
 
 	@PostMapping("/update")
-	public String update(HttpServletRequest request, @RequestParam("id") Long id, @RequestParam("dateMod") Date dateMod,
-			@RequestParam("number") String number, @RequestParam("content") String content,
+	public String update(HttpServletRequest request, 
+			@RequestParam("id") Long id, 
+			@RequestParam("dateMod") Date dateMod,
+			@RequestParam("number") String number, 
+			@RequestParam("content") String content,
 			@RequestParam("id_document") Long idDocument) {
 
 		VersionDTO dto = new VersionDTO();
@@ -66,8 +68,11 @@ public class VersionController {
 	}
 
 	@PostMapping("/insert")
-	public String insert(HttpServletRequest request, @RequestParam("id") Long id, @RequestParam("dateMod") Date dateMod,
-			@RequestParam("number") String number, @RequestParam("content") String content,
+	public String insert(HttpServletRequest request, 
+			@RequestParam("id") Long id, 
+			@RequestParam("dateMod") Date dateMod,
+			@RequestParam("number") String number, 
+			@RequestParam("content") String content,
 			@RequestParam("id_document") Long idDocument) {
 
 		VersionDTO dto = new VersionDTO();

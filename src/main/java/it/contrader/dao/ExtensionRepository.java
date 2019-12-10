@@ -9,6 +9,6 @@ import it.contrader.model.Extension;
 
 @Repository
 @Transactional
-public interface ExtensionRepository extends CrudRepository<Extension, Long>{
-	
+public interface ExtensionRepository extends CrudRepository<Extension, Long> {
+
 }

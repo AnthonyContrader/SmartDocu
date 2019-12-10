@@ -21,7 +21,7 @@ public class DocumentConverter extends AbstractConverter<Document, DocumentDTO> 
 	
 	@Autowired
 	private ExtensionConverter extensionConverter;
-	
+		
 	
 	@Override
 	public Document toEntity(DocumentDTO documentDTO) {
@@ -35,7 +35,7 @@ public class DocumentConverter extends AbstractConverter<Document, DocumentDTO> 
 			document.setTitle(documentDTO.getTitle());
 			document.setDescription(documentDTO.getDescription());
 			document.setGenre(documentDTO.getGenre());
-			document.setDatePub(documentDTO.getDatePub());
+			document.setDatePub((documentDTO.getDatePub()));
 			
 			
 			if(documentDTO.getUserDTO()!= null) {

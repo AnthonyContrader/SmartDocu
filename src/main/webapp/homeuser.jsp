@@ -3,8 +3,8 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="Homepage for Admin ">
-<meta name="author" content="Vittorio Valent">
+<meta name="description" content="Homepage for User ">
+
 
 <title>Home</title>
 
@@ -20,13 +20,11 @@
 
 
 	<div class="navbar">
-		<a class="active" href="/homeadmin.jsp">Home</a> 
+		<a class="active" href="/homeuser.jsp">Home</a> 
 		<a href=/user/getall>Users</a>
-		<a href="/folder/getall">Folders</a> 
+		<a href="/foldersuser.jsp">Folders</a>
 		<a href="/document/getall">Documents</a>
-		<a href="/version/getall">Versions</a> 
-		<a href="/category/getall">Categories</a> 
-		<a href="/extension/getall">Extensions</a> 
+		
 		<a href="/user/logout" id="logout">Logout</a>
 	</div>
 

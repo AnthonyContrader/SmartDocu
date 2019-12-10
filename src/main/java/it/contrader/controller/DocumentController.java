@@ -171,8 +171,6 @@ public class DocumentController {
 	private void setAll(HttpServletRequest request) {
 		request.getSession().setAttribute("list", documentService.getAll());
 	}
-	
-	
-	//findByFolder
+
 
 }

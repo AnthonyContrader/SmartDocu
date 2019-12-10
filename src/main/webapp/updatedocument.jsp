@@ -112,6 +112,9 @@
 						<option value='1'>.doc</option>
 					</select>
 				</div>
+				
+				<input type="hidden" name="id" value =<%=d.getId() %>>
+				
 			</div>
 			
 			

@@ -67,6 +67,7 @@
 				<input type="text" id="idDocument" name="idDocument"
 					placeholder="inserisci Document">
 			</div>
+				<input type="hidden" name="id" value =<%=v.getId() %>>
 		</div>
 		<button type="submit">Insert</button>
 	</form>

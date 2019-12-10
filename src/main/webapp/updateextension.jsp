@@ -37,6 +37,8 @@
 	    	<div class="col-75">
 	    		<input type="text" id="type" name="type" value=<%=e.getType()%>>
 	    	</div>
+	    	
+	    		<input type="hidden" name="id" value =<%=e.getId() %>>
 		</div>
 	      
 	      <button type="submit" >Edit</button>

@@ -64,6 +64,7 @@ public class VersionController {
 		dto.setNumber(number);
 		dto.setContent(content);
 		dto.setDocumentDTO(d);
+		
 		service.update(dto);
 		setAll(request);
 		return "versions";
@@ -99,5 +100,6 @@ public class VersionController {
 
 	private void setAll(HttpServletRequest request) {
 		request.getSession().setAttribute("list", service.getAll());
+		request.getSession().setAttribute("listD", documentService.getAll());
 	}
 }

@@ -23,6 +23,7 @@ import it.contrader.service.DocumentService;
 import it.contrader.service.ExtensionService;
 import it.contrader.service.FolderService;
 import it.contrader.service.UserService;
+import it.contrader.service.VersionService;
 
 @Controller
 @RequestMapping("/document")
@@ -39,6 +40,9 @@ public class DocumentController {
 	
 	@Autowired
 	private CategoryService categoryService;
+	
+	@Autowired
+	private VersionService versionService;
 	
 	@Autowired
 	private ExtensionService extensionService;
@@ -103,11 +107,19 @@ public class DocumentController {
 	
 	@GetMapping("/readbyfolderid")
 	public String readByIdFolder(HttpServletRequest request, @RequestParam("id") Long id) {
-		request.getSession().setAttribute("dto", documentService.findByFolderId(id));
+		request.getSession().setAttribute("dto", documentService.findAllDocumentsByFolderId(id));
 		return "readdocumentbyfolderid";
 	}
 	
-
+	
+	@GetMapping("/readuser")
+	public String readForUser(HttpServletRequest request, @RequestParam("id") Long id) {
+		request.getSession().setAttribute("dtoDocument", documentService.read(id));
+		request.getSession().setAttribute("dtoVersion", versionService.findByDocumentId(id));
+		return "readdocumentbyfolderid";
+	}
+	
+	
 	@GetMapping("/preupdate")
 	public String preUpdate(HttpServletRequest request, @RequestParam("id") Long id) {
 		request.getSession().setAttribute("dto", documentService.read(id));
@@ -171,6 +183,10 @@ public class DocumentController {
 
 	private void setAll(HttpServletRequest request) {
 		request.getSession().setAttribute("list", documentService.getAll());
+		request.getSession().setAttribute("listUser", userService.getAll());
+		request.getSession().setAttribute("listFolder", folderService.getAll());
+		request.getSession().setAttribute("listCategory", categoryService.getAll());
+		request.getSession().setAttribute("listExtension", extensionService.getAll());
 	}
 
 

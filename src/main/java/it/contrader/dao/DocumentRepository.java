@@ -1,5 +1,7 @@
 package it.contrader.dao;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.data.repository.CrudRepository;
@@ -11,6 +13,6 @@ import it.contrader.model.Document;
 @Transactional
 public interface DocumentRepository extends CrudRepository<Document, Long> {
 	
-	Document findByFolderId (Long id);
+	List<Document> findAllByFolderId (Long id);
 
 }

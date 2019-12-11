@@ -44,7 +44,7 @@
 				for (DocumentDTO d : list) {
 			%>
 			<tr>
-				<td><a href="/document/read?id=<%=d.getId()%>"> <%=d.getTitle()%></a></td>
+				<td><a href="/document/readuser?id=<%=d.getId()%>"> <%=d.getTitle()%></a></td>
 				<td><%=d.getDescription()%></td>
 				<td><%=d.getGenre()%></td>
 				<td><%=d.getDatePub()%></td>

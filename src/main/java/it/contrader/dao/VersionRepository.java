@@ -11,4 +11,6 @@ import it.contrader.model.Version;
 @Transactional
 public interface VersionRepository extends CrudRepository<Version, Long> {
 
+	Version findByDocumentId(Long id);
+
 }

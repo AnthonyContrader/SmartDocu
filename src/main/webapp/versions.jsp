@@ -1,3 +1,4 @@
+<%@page import="it.contrader.dto.DocumentDTO"%>
 <%@ page import="it.contrader.dto.VersionDTO" import="java.util.*"%>
 <html>
 <head>
@@ -27,6 +28,7 @@
 	<div class="main">
 		<%
 			List<VersionDTO> list = (List<VersionDTO>) request.getSession().getAttribute("list");
+			List<DocumentDTO> listD = (List<DocumentDTO>) request.getSession().getAttribute("listD");
 		%>
 
 		<br>
@@ -44,7 +46,7 @@
 				for (VersionDTO v : list) {
 			%>
 			<tr>
-				<td><a href="/version/read?id=<%=v.getId()%>"> <%=v.getNumber()%></a></td>
+				<td><a href="/version/read?id=<%=v.getId()%>"><%=v.getNumber()%></a></td>
 				<td><%=v.getDateMod()%></td>
 				<td><%=v.getContent()%></td>
 				<td><%=v.getDocumentDTO().getTitle() %></td>
@@ -60,7 +62,6 @@
 		</table>
 
 
-
 		<form id="floatright" action="/version/insert" method="post">
 			<div class="row">
 				<div class="col-25">
@@ -71,15 +72,17 @@
 						placeholder="inserisci number">
 				</div>
 			</div>
+			
 			<div class="row">
 				<div class="col-25">
 					<label for="dateMod">Modification Date</label>
 				</div>
 				<div class="col-75">
-					<input type="text" id="dateMod" name="dateMod"
+					<input type="date" data-date-inline-picker="true" id="date" name="dateMod"
 						placeholder="inserisci modification date">
 				</div>
 			</div>
+			
 			<div class="row">
 				<div class="col-25">
 					<label for="content">Content</label>
@@ -89,15 +92,20 @@
 						placeholder="inserisci content">
 				</div>
 			</div>
+			
 			<div class="row">
 				<div class="col-25">
 					<label for="document">Document</label>
 				</div>
 				<div class="col-75">
-					<input type="text" id="document" name="document"
-						placeholder="inserisci Document">
+					<select id="document" name="document">
+						<%for (DocumentDTO d : listD) { %>
+						<option value='<%=d.getId()%>'><%=d.getTitle() %></option>
+						<% } %>
+					</select>
 				</div>
 			</div>
+			
 			<button type="submit">Insert</button>
 		</form>
 

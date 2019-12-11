@@ -79,15 +79,15 @@ public class DocumentConverter extends AbstractConverter<Document, DocumentDTO> 
 				documentDTO.setUserDTO(userConverter.toDTO(document.getUser()));
 			}
 			
-			if(documentDTO.getFolderDTO()!= null) {
+			if(document.getFolder()!= null) {
 				documentDTO.setFolderDTO(folderConverter.toDTO(document.getFolder()));
 			}
 			
-			if(documentDTO.getCategoryDTO()!= null) {
+			if(document.getCategory()!= null) {
 				documentDTO.setCategoryDTO(categoryConverter.toDTO(document.getCategory()));
 			}
 			
-			if(documentDTO.getExtensionDTO()!= null) {
+			if(document.getExtension()!= null) {
 				documentDTO.setExtensionDTO(extensionConverter.toDTO(document.getExtension()));
 			}
 			

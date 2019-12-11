@@ -1,4 +1,11 @@
-<%@ page import="it.contrader.dto.DocumentDTO" import="java.util.*"%>
+<%@page 
+	import="it.contrader.dto.ExtensionDTO"
+	import="it.contrader.dto.UserDTO"
+ 	import="it.contrader.dto.CategoryDTO"
+ 	import="it.contrader.dto.FolderDTO"
+ 	import="it.contrader.dto.DocumentDTO" 
+ 	import="java.util.*"
+ %>
 <html>
 <head>
 <meta charset="utf-8">
@@ -27,6 +34,10 @@
 	<div class="main">
 		<%
 			List<DocumentDTO> list = (List<DocumentDTO>) request.getSession().getAttribute("list");
+			List<UserDTO> listU = (List<UserDTO>) request.getSession().getAttribute("listUser");
+			List<FolderDTO> listF = (List<FolderDTO>) request.getSession().getAttribute("listFolder");
+			List<CategoryDTO> listC = (List<CategoryDTO>) request.getSession().getAttribute("listCategory");
+			List<ExtensionDTO> listE = (List<ExtensionDTO>) request.getSession().getAttribute("listExtension");
 		%>
 
 		<br>
@@ -52,9 +63,9 @@
 				<td><%=d.getDescription()%></td>
 				<td><%=d.getGenre()%></td>
 				<td><%=d.getDatePub()%></td>
-				<td><%=d.getUserDTO().getUsername() %></td>
+				<td><%=d.getUserDTO().getUsername()%></td>
 				<td><%=d.getFolderDTO().getName() %></td>
-				<td><%=d.getCategoryDTO()%></td>
+				<td><%=d.getCategoryDTO().getType() %></td>
 				<td><%=d.getExtensionDTO().getType() %></td>
 				
 				<td><a href="/document/preupdate?id=<%=d.getId()%>">Edit</a></td>
@@ -118,8 +129,9 @@
 				</div>
 				<div class="col-75">
 					<select id="user" name="user">
-						<option value='1'>admin</option>
-						<option value='2'>user</option>
+						<%for (UserDTO u : listU) { %>
+						<option value='<%=u.getId()%>'><%=u.getUsername() %></option>
+						<% } %>
 					</select>
 				</div>
 			</div>
@@ -130,8 +142,9 @@
 				</div>
 				<div class="col-75">
 					<select id="folder" name="folder">
-						<option value='1'>Documenti</option>
-						<option value='2'>Film</option>
+						<%for (FolderDTO f : listF) { %>
+						<option value='<%=f.getId()%>'><%=f.getName() %></option>
+						<% } %>
 					</select>
 				</div>
 			</div>
@@ -142,7 +155,9 @@
 				</div>
 				<div class="col-75">
 					<select id="category" name="category">
-						<option value='1'>Privato</option>
+						<%for (CategoryDTO c : listC) { %>
+						<option value='<%=c.getId()%>'><%=c.getType() %></option>
+						<% } %>
 					</select>
 				</div>
 			</div>
@@ -153,7 +168,9 @@
 				</div>
 				<div class="col-75">
 					<select id="extension" name="extension">
-						<option value='1'>.doc</option>
+						<%for(ExtensionDTO e : listE) { %>
+						<option value='<%=e.getId()%>'><%=e.getType() %></option>
+						<% } %>
 					</select>
 				</div>
 			</div>

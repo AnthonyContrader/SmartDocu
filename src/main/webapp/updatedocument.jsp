@@ -5,6 +5,7 @@
 	import="it.contrader.dto.UserDTO"
  	import="it.contrader.dto.CategoryDTO"
  	import="it.contrader.dto.FolderDTO"
+ 	import="java.util.*"
 %>
 <html>
 <head>

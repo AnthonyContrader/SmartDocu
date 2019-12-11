@@ -34,7 +34,7 @@
 			<tr>
 				<th>ID</th>
 				<th>Type</th>
-				<td>Description</td>
+				<th>Description</th>
 			</tr>
 			<tr>
 				<td><%=c.getId()%></td>

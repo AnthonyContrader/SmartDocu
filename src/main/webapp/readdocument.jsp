@@ -32,6 +32,7 @@
 		<br>
 
 		<table>
+			
 			<tr>
 				<th>Title</th>
 				<th>Description</th>
@@ -44,6 +45,7 @@
 				<th></th>
 				<th></th>
 			</tr>
+			
 			<tr>
 				<td><%=d.getTitle()%></td>
 				<td><%=d.getDescription()%></td>
@@ -51,9 +53,10 @@
 				<td><%=d.getDatePub() %></td>
 				<td><%=d.getUserDTO().getUsername() %></td>
 				<td><%=d.getFolderDTO().getName() %></td>
-				<td><%=d.getCategoryDTO()%></td>
+				<td><%=d.getCategoryDTO().getType()%></td>
 				<td><%=d.getExtensionDTO().getType() %></td>
-					</tr>
+			</tr>
+			
 		</table>
 
 		<br> <br> <br> <br> <br> <br> <br>

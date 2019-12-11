@@ -35,7 +35,7 @@
 	      	<label for="type">Type</label>
 	    	</div>
 	    	<div class="col-75">
-	    		<input type="text" id="type" name="type" value=<%=c.getType()%>>
+	    		<input type="text" id="type" name="type" value="<%=c.getType()%>">
 	    	</div>
 		</div>
 		
@@ -44,7 +44,7 @@
 	      	<label for="description">Description</label>
 	    	</div>
 	    	<div class="col-75">
-	    		<input type="text" id="description" name="description" value=<%=c.getDescription()%>>
+	    		<input type="text" id="description" name="description" value="<%=c.getDescription()%>">
 	    	</div>
 	    	
 	    	<input type="hidden" name="id" value =<%=c.getId() %>>

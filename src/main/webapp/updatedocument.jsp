@@ -1,5 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" import="it.contrader.dto.DocumentDTO"%>
+    pageEncoding="ISO-8859-1" 
+    import="it.contrader.dto.DocumentDTO"
+    import="it.contrader.dto.ExtensionDTO"
+	import="it.contrader.dto.UserDTO"
+ 	import="it.contrader.dto.CategoryDTO"
+ 	import="it.contrader.dto.FolderDTO"
+%>
 <html>
 <head>
 <meta charset="utf-8">
@@ -25,12 +31,19 @@
 <br>
 <div class="main">
 
-	<%DocumentDTO d = (DocumentDTO) request.getSession().getAttribute("dto");%>
+	<%
+		DocumentDTO d = (DocumentDTO) request.getSession().getAttribute("dto");
+		List<UserDTO> listU = (List<UserDTO>) request.getSession().getAttribute("listUser");
+		List<FolderDTO> listF = (List<FolderDTO>) request.getSession().getAttribute("listFolder");
+		List<CategoryDTO> listC = (List<CategoryDTO>) request.getSession().getAttribute("listCategory");
+		List<ExtensionDTO> listE = (List<ExtensionDTO>) request.getSession().getAttribute("listExtension");
+	%>
+	
 
 
 	<form id="floatleft" action="/document/update" method="post">
 		
-		<div class="row">
+<div class="row">
 				<div class="col-25">
 					<label for="title">Title</label>
 				</div>
@@ -60,12 +73,13 @@
 				</div>
 			</div>
 			
+			
 			<div class="row">
 				<div class="col-25">
 					<label for="datePub">Publication Date</label>
 				</div>
 				<div class="col-75">
-					<input type="text" id="datePub" name="datePub"
+					<input type="date" data-date-inline-picker="true" id="date" name="datePub"
 						placeholder="inserisci publication date">
 				</div>
 			</div>
@@ -75,8 +89,11 @@
 					<label for="user">User</label>
 				</div>
 				<div class="col-75">
-					<input type="text" id="user" name="user"
-						placeholder="inserisci user">
+					<select id="user" name="user">
+						<%for (UserDTO u : listU) { %>
+						<option value='<%=u.getId()%>'><%=u.getUsername() %></option>
+						<% } %>
+					</select>
 				</div>
 			</div>
 			
@@ -86,8 +103,9 @@
 				</div>
 				<div class="col-75">
 					<select id="folder" name="folder">
-						<option value='1'>Documenti</option>
-						<option value='2'>Film</option>
+						<%for (FolderDTO f : listF) { %>
+						<option value='<%=f.getId()%>'><%=f.getName() %></option>
+						<% } %>
 					</select>
 				</div>
 			</div>
@@ -98,7 +116,9 @@
 				</div>
 				<div class="col-75">
 					<select id="category" name="category">
-						<option value='1'>Privato</option>
+						<%for (CategoryDTO c : listC) { %>
+						<option value='<%=c.getId()%>'><%=c.getType() %></option>
+						<% } %>
 					</select>
 				</div>
 			</div>
@@ -109,12 +129,11 @@
 				</div>
 				<div class="col-75">
 					<select id="extension" name="extension">
-						<option value='1'>.doc</option>
+						<%for(ExtensionDTO e : listE) { %>
+						<option value='<%=e.getId()%>'><%=e.getType() %></option>
+						<% } %>
 					</select>
 				</div>
-				
-				<input type="hidden" name="id" value =<%=d.getId() %>>
-				
 			</div>
 			
 			

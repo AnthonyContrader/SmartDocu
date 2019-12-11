@@ -46,7 +46,7 @@ public class CategoryController {
 
 		CategoryDTO dto = new CategoryDTO();
 		dto.setId(id);
-		dto.setType(description);
+		dto.setType(type);
 		dto.setDescription(description);
 
 		service.update(dto);

@@ -50,7 +50,7 @@
 				<td><%=d.getDatePub()%></td>
 				<td><%=d.getUserDTO().getUsername() %></td>
 				<td><%=d.getFolderDTO().getName() %></td>
-				<td><%=d.getCategoryDTO()%></td>
+				<td><%=d.getCategoryDTO().getType()%></td>
 				<td><%=d.getExtensionDTO().getType() %></td>
 				
 				<td><a href="/document/preupdate?id=<%=d.getId()%>">Edit</a></td>

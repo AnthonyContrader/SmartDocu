@@ -26,9 +26,9 @@
 			VersionDTO v = (VersionDTO) request.getSession().getAttribute("dtoVersion");
 		%>
 
-		<h1><%d.getTitle(); %></h1>
-		<h2><%d.getDescription(); %></h2>
-		<label><%v.getContent(); %></label>
+		<h1><%=d.getTitle() %></h1>
+		<h2><%=d.getDescription() %></h2>
+		<label><%=v.getContent() %></label>
 
 	</div>
 	<br>

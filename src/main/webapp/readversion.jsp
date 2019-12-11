@@ -46,6 +46,7 @@
 				<td><%=v.getDateMod()%></td>
 				<td><%=v.getContent()%></td>
 				<td><%=v.getDocumentDTO().getTitle() %></td>
+			</tr>
 				
 		</table>
 

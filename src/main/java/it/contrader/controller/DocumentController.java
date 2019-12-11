@@ -116,7 +116,7 @@ public class DocumentController {
 	public String readForUser(HttpServletRequest request, @RequestParam("id") Long id) {
 		request.getSession().setAttribute("dtoDocument", documentService.read(id));
 		request.getSession().setAttribute("dtoVersion", versionService.findByDocumentId(id));
-		return "readdocumentbyfolderid";
+		return "readdocuser";
 	}
 	
 	

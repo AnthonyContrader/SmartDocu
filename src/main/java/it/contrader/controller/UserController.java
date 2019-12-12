@@ -27,7 +27,7 @@ import it.contrader.service.UserService;
 @RestController
 @RequestMapping("/user")
 @CrossOrigin(origins = "http://localhost:4200")
-public class UserController extends AbstractController<UserDTO>{
+public class UserController extends AbstractController<UserDTO> {
 	
 	@Autowired
 	private UserService userService;

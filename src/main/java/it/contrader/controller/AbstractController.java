@@ -33,17 +33,6 @@ public abstract class AbstractController <DTO>{
 		return service.getAll();		
 	}
 	
-	@DeleteMapping("/delete")
-	public void delete(@RequestParam("id") long id) {
-		service.delete(id);
-	}
-	
-	@PutMapping("/update")
-	public DTO update(@RequestBody DTO dto){
-		service.update(dto);
-		return dto;
-	}
-	
 	@PostMapping("/insert")
 	public DTO insert (@RequestBody DTO dto) {
 		service.insert(dto);
@@ -54,4 +43,16 @@ public abstract class AbstractController <DTO>{
 	public DTO read(long id) {
 		return service.read(id);
 	}
+	
+	@PutMapping("/update")
+	public DTO update(@RequestBody DTO dto){
+		service.update(dto);
+		return dto;
+	}
+	
+	@DeleteMapping("/delete")
+	public void delete(@RequestParam("id") long id) {
+		service.delete(id);
+	}
+	
 }

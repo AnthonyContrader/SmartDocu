@@ -7,34 +7,38 @@
         <table>
           <tr>
             <th>
-              Username
+              Content
             </th>
             <th>
-              Password
+              Data Modifica
             </th>
             <th>
-              Usertype
+              Number 
+            </th>
+            <th>
+              Document 
             </th>
             <th>
               Edit
             </th>
             <th>
-              User
+              Version
             </th>
           </tr>
           <tr>
             <td>
-              <input placeholder="username" [(ngModel)]="versiontoinsert.username">
+              <input placeholder="content" [(ngModel)]="versiontoinsert.content">
             </td>
             <td>
-              <input placeholder="password" [(ngModel)]="versiontoinsert.password">
+              <input placeholder="dateMod" [(ngModel)]="versiontoinsert.dateMod">
             </td>
             <td>
-              <select placeholder="usertype" [(ngModel)]="versiontoinsert.usertype">
-                <option value="ADMIN">ADMIN</option>
-                <option value="USER">USER</option>
-              </select>
+              <input placeholder="number" [(ngModel)]="versiontoinsert.number">
             </td>
+            <td>
+              <input placeholder="document" [(ngModel)]="versiontoinsert.documentdto">
+            </td>
+           
             <td>
               <button (click)="insert(versiontoinsert)">Insert</button>
             </td>
@@ -44,17 +48,19 @@
           </tr>
           <tr *ngFor="let version of versions">
             <td>
-              <input [(ngModel)]="version.username">
+              <input [(ngModel)]="version.content">
             </td>
             <td>
-              <input [(ngModel)]="version.password">
+              <input [(ngModel)]="version.dateMod">
             </td>
             <td>
-              <select [(ngModel)]="version.usertype">
-                <option [selected]="user.usertype===ADMIN" value="ADMIN">ADMIN</option>
-                <option [selected]="user.usertype===USER" value="USER">USER</option>
-              </select>
+              <input [(ngModel)]="version.number">
             </td>
+            <td>
+              <input [(ngModel)]="version.documentdto">
+            </td>
+
+           
             <td>
               <button (click)=update(version)>Save</button>
             </td>

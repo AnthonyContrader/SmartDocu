@@ -1,1 +1,47 @@
-<p>extensions works!</p>
+<div class="container">
+    <div class="row mt-5">
+      <div class="col-md-1">
+  
+      </div>
+      <div class="col-md-10">
+        <table>
+          <tr>
+            <th>
+              Type
+            </th>
+            <th>
+              Edit
+            </th>
+            <th>
+              Extension
+            </th>
+          </tr>
+          <tr>
+            <td>
+              <input placeholder="type" [(ngModel)]="extensiontoinsert.type">
+            </td>
+            <td>
+              <button (click)="insert(extensiontoinsert)">Insert</button>
+            </td>
+            <td>
+              <button (click)="clear()">Clear</button>
+            </td>
+          </tr>
+          <tr *ngFor="let extension of extensions">
+            <td>
+              <input [(ngModel)]="extension.type">
+            </td>
+            <td>
+              <button (click)=update(extension)>Save</button>
+            </td>
+            <td>
+              <button (click)="delete(extension)">Delete</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-1">
+  
+      </div>
+    </div>
+  </div>

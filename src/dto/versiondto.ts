@@ -6,5 +6,4 @@ export class VersionDTO {
     datemod: Date;
     number: number;
     documentdto:DocumentDTO;
-
 }

@@ -1,1 +1,47 @@
-<p>folders works!</p>
+<div class="container">
+    <div class="row mt-5">
+      <div class="col-md-1">
+  
+      </div>
+      <div class="col-md-10">
+        <table>
+          <tr>
+            <th>
+              Name
+            </th>
+            <th>
+              Edit
+            </th>
+            <th>
+              Folder
+            </th>
+          </tr>
+          <tr>
+            <td>
+              <input placeholder="name" [(ngModel)]="foldertoinsert.name">
+            </td>
+            <td>
+              <button (click)="insert(foldertoinsert)">Insert</button>
+            </td>
+            <td>
+              <button (click)="clear()">Clear</button>
+            </td>
+          </tr>
+          <tr *ngFor="let folder of folders">
+            <td>
+              <input [(ngModel)]="folder.name">
+            </td>
+            <td>
+              <button (click)=update(folder)>Save</button>
+            </td>
+            <td>
+              <button (click)="delete(folder)">Delete</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-1">
+  
+      </div>
+    </div>
+  </div>

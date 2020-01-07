@@ -1,1 +1,110 @@
-<p>documents works!</p>
+<div class="container">
+    <div class="row mt-5">
+      <div class="col-md-1">
+  
+      </div>
+      <div class="col-md-10">
+        <table>
+          <tr>
+            <th>
+              data publicazione
+            </th>
+            <th>
+              Description
+            </th>
+            <th>
+                Genere
+              </th>
+              <th>
+                Category
+              </th>
+              <th>
+                Extension
+              </th>
+              <th>
+                Folder
+              </th>
+              <th>
+                  User
+                </th>
+                <th>
+                  Titolo
+                </th>
+            <th>
+              Edit
+            </th>
+            <th>
+              Document
+            </th>
+          </tr>
+          <tr>
+            <td>
+              <input placeholder="data publicazione" [(ngModel)]="documenttoinsert.dataPubblicazione">
+            </td>
+            <td>
+              <input placeholder="description" [(ngModel)]="documenttoinsert.description">
+            </td>
+            <td>
+                <input placeholder="Genere" [(ngModel)]="documenttoinsert.genre">
+              </td>
+              <td>
+                <input placeholder="category" [(ngModel)]="documenttoinsert.category">
+              </td>
+              <td>
+                <input placeholder="Extension" [(ngModel)]="documenttoinsert.extension">
+              </td>
+              <td>
+                <input placeholder="Folder" [(ngModel)]="documenttoinsert.folder">
+              </td>
+              <td>
+                <input placeholder="User" [(ngModel)]="documenttoinsert.user">
+              </td>
+              <td>
+                <input placeholder="Titolo" [(ngModel)]="documenttoinsert.titolo">
+              </td>
+            <td>
+              <button (click)="insert(documenttoinsert)">Insert</button>
+            </td>
+            <td>
+              <button (click)="clear()">Clear</button>
+            </td>
+          </tr>
+          <tr *ngFor="let document of documents">
+            <td>
+              <input [(ngModel)]="document.dataPubblicazione">
+            </td>
+            <td>
+              <input [(ngModel)]="document.description">
+            </td>
+            <td>
+                <input [(ngModel)]="document.genre">
+              </td>
+              <td>
+                <input [(ngModel)]="document.category">
+              </td>
+              <td>
+                <input [(ngModel)]="document.extension">
+              </td>
+              <td>
+                <input [(ngModel)]="document.folder">
+              </td>
+              <td>
+                <input [(ngModel)]="document.user">
+              </td>
+              <td>
+                <input [(ngModel)]="document.title">
+              </td>
+            <td>
+              <button (click)=update(document)>Save</button>
+            </td>
+            <td>
+              <button (click)="delete(document)">Delete</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-1">
+  
+      </div>
+    </div>
+  </div>

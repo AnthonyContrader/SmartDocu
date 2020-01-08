@@ -1,35 +1,33 @@
 <div class="container">
     <div class="row mt-5">
-      <div class="col-md-1">
-  
-      </div>
+
       <div class="col-md-10">
         <table>
           <tr>
             <th>
-              data publicazione
+              Titolo
             </th>
             <th>
-              Description
+              Descrizione
             </th>
             <th>
-                Genere
-              </th>
-              <th>
-                Category
-              </th>
-              <th>
-                Extension
-              </th>
-              <th>
-                Folder
-              </th>
-              <th>
-                  User
-                </th>
-                <th>
-                  Titolo
-                </th>
+              Genere
+            </th>
+            <th>
+              Data Publicazione
+            </th>
+            <th>
+              Utente
+            </th>
+            <th>
+              Cartella
+            </th>
+            <th>
+              Categoria
+            </th>
+            <th>
+              Estensione
+            </th>
             <th>
               Edit
             </th>
@@ -39,29 +37,38 @@
           </tr>
           <tr>
             <td>
-              <input placeholder="data publicazione" [(ngModel)]="documenttoinsert.dataPubblicazione">
+              <input placeholder="Titolo" [(ngModel)]="documenttoinsert.title">
             </td>
             <td>
-              <input placeholder="description" [(ngModel)]="documenttoinsert.description">
+              <input placeholder="Descrizione" [(ngModel)]="documenttoinsert.description">
             </td>
             <td>
-                <input placeholder="Genere" [(ngModel)]="documenttoinsert.genre">
-              </td>
-              <td>
-                <input placeholder="category" [(ngModel)]="documenttoinsert.category">
-              </td>
-              <td>
-                <input placeholder="Extension" [(ngModel)]="documenttoinsert.extension">
-              </td>
-              <td>
-                <input placeholder="Folder" [(ngModel)]="documenttoinsert.folder">
-              </td>
-              <td>
-                <input placeholder="User" [(ngModel)]="documenttoinsert.user">
-              </td>
-              <td>
-                <input placeholder="Titolo" [(ngModel)]="documenttoinsert.titolo">
-              </td>
+              <input placeholder="Genere" [(ngModel)]="documenttoinsert.genre">
+            </td>
+            <td>
+              <input  type="date" data-date-inline-picker="true" placeholder="Data Publicazione" [(ngModel)]="documenttoinsert.datePub" ngbDatepicker>
+            </td>
+            <td>
+              <select [(ngModel)]="documenttoinsert.user">
+                <option *ngFor="let user of users" [ngValue]="user">{{user.username}}</option>
+              </select>
+            </td>
+            <td>
+              <select [(ngModel)]="documenttoinsert.folder">
+                <option *ngFor="let folder of folders" [ngValue]="folder">{{folder.name}}</option>
+              </select>
+            </td>
+            <td>
+              <select [(ngModel)]="documenttoinsert.category">
+                <option *ngFor="let category of categories" [ngValue]="category">{{category.type}}</option>
+              </select>
+            </td>
+            <td>
+              <select [(ngModel)]="documenttoinsert.extension">
+                <option *ngFor="let extension of extensions" [ngValue]="extension">{{extension.type}}</option>
+              </select>
+            </td>
+
             <td>
               <button (click)="insert(documenttoinsert)">Insert</button>
             </td>
@@ -71,29 +78,38 @@
           </tr>
           <tr *ngFor="let document of documents">
             <td>
-              <input [(ngModel)]="document.dataPubblicazione">
+              <input [(ngModel)]="document.title">
             </td>
             <td>
               <input [(ngModel)]="document.description">
             </td>
             <td>
-                <input [(ngModel)]="document.genre">
-              </td>
-              <td>
-                <input [(ngModel)]="document.category">
-              </td>
-              <td>
-                <input [(ngModel)]="document.extension">
-              </td>
-              <td>
-                <input [(ngModel)]="document.folder">
-              </td>
-              <td>
-                <input [(ngModel)]="document.user">
-              </td>
-              <td>
-                <input [(ngModel)]="document.title">
-              </td>
+              <input [(ngModel)]="document.genre">
+            </td>
+            <td>
+              <input [(ngModel)]="document.datePub" type="date" data-date-inline-picker="true">
+            </td>
+            <td>
+                <select [(ngModel)]="document.user">
+                  <option *ngFor="let user of users" [ngValue]="user">{{user.username}}</option>
+                </select>
+            </td>
+            <td>
+              <select [(ngModel)]="document.folder">
+                <option *ngFor="let folder of folders" [ngValue]="folder">{{folder.name}}</option>
+              </select>
+            </td>
+            <td>
+              <select [(ngModel)]="document.category">
+                <option *ngFor="let category of categories" [ngValue]="category">{{category.type}}</option>
+              </select>
+            </td>
+            <td>
+              <select [(ngModel)]="document.extension">
+                <option *ngFor="let extension of extensions" [ngValue]="extension">{{extension.type}}</option>
+              </select>
+            </td>
+
             <td>
               <button (click)=update(document)>Save</button>
             </td>

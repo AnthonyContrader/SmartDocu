@@ -26,13 +26,13 @@ const routes: Routes = [
   { path: 'admin-dashboard', component: AdminLayoutComponent, children:[
     { path: '', component: AdminDashboardComponent},
     { path: 'users', component: UsersComponent},
-    { path: 'categories', component: CategoriesComponent},
-    { path: 'work-in-progress', component: WorkInProgressComponent},
-    { path: 'extensions', component: ExtensionsComponent},
     { path: 'folders', component: FoldersComponent},
+    { path: 'documents', component: DocumentsComponent},
+    { path: 'categories', component: CategoriesComponent},
     { path: 'versions', component: VersionsComponent},
-    { path: 'documents', component: DocumentsComponent}
-  ]}
+    { path: 'extensions', component: ExtensionsComponent},
+    { path: 'work-in-progress', component: WorkInProgressComponent}
+    ]}
 ];
 
 @NgModule({

@@ -5,7 +5,7 @@
 /*Tables*/
 table {
 	border-collapse: collapse;
-	width: 100%;
+	width: 90%;
 	float: left;
 	border-radius: 4px;
 	-moz-border-radius: 4px;
@@ -13,11 +13,11 @@ table {
 
 th, td {
 	text-align: center;
-	padding: 2px;
+	padding: 1px;
 }
 
 td{
-    font-size: 16px;
+    font-size: 13px;
 }
 
 

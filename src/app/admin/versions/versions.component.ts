@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { VersionDTO } from 'src/dto/versiondto';
 import { VersionService } from 'src/service/version.service';
+import {DocumentDTO} from '../../../dto/documentdto';
+import {DocumentService} from '../../../service/document.service';
 
 
 @Component({
@@ -11,16 +13,23 @@ import { VersionService } from 'src/service/version.service';
 export class VersionsComponent implements OnInit {
 
   versions: VersionDTO[];
+  documents: DocumentDTO[];
+
   versiontoinsert: VersionDTO = new VersionDTO();
 
-  constructor(private service: VersionService) { }
+  constructor(private service: VersionService, private documentService: DocumentService) { }
 
   ngOnInit() {
     this.getVersions();
+    this.getDocuments();
   }
 
   getVersions() {
     this.service.getAll().subscribe(versions => this.versions = versions);
+  }
+
+  getDocuments() {
+    this.documentService.getAll().subscribe(documents => this.documents = documents);
   }
 
   delete(version: VersionDTO) {
@@ -35,7 +44,7 @@ export class VersionsComponent implements OnInit {
     this.service.insert(version).subscribe(() => this.getVersions());
   }
 
-  clear(){
+  clear() {
     this.versiontoinsert = new VersionDTO();
   }
 }

@@ -30,13 +30,15 @@
               <input placeholder="content" [(ngModel)]="versiontoinsert.content">
             </td>
             <td>
-              <input placeholder="dateMod" [(ngModel)]="versiontoinsert.dateMod">
+              <input type="date" data-date-inline-picker="true" placeholder="dateMod" [(ngModel)]="versiontoinsert.datemod">
             </td>
             <td>
               <input placeholder="number" [(ngModel)]="versiontoinsert.number">
             </td>
             <td>
-              <input placeholder="document" [(ngModel)]="versiontoinsert.documentdto">
+              <select [(ngModel)]="versiontoinsert.documentdto">
+                <option *ngFor="let document of documents" [ngValue]="document">{{document.title}}</option>
+              </select>
             </td>
            
             <td>
@@ -51,16 +53,17 @@
               <input [(ngModel)]="version.content">
             </td>
             <td>
-              <input [(ngModel)]="version.dateMod">
+              <input [(ngModel)]="version.datemod" type="date" data-date-inline-picker="true">
             </td>
             <td>
               <input [(ngModel)]="version.number">
             </td>
             <td>
-              <input [(ngModel)]="version.documentdto">
+              <select [(ngModel)]="version.documentdto">
+                <option *ngFor="let document of documents" [ngValue]="document">{{document.title}}</option>
+              </select>
             </td>
 
-           
             <td>
               <button (click)=update(version)>Save</button>
             </td>

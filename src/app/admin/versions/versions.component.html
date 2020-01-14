@@ -1,0 +1,80 @@
+<div class="container">
+    <div class="row mt-5">
+      <div class="col-md-1">
+  
+      </div>
+      <div class="col-md-10">
+        <table>
+          <tr>
+            <th>
+              Content
+            </th>
+            <th>
+              Data Modifica
+            </th>
+            <th>
+              Number 
+            </th>
+            <th>
+              Document 
+            </th>
+            <th>
+              Edit
+            </th>
+            <th>
+              Version
+            </th>
+          </tr>
+          <tr>
+            <td>
+              <input placeholder="content" [(ngModel)]="versiontoinsert.content">
+            </td>
+            <td>
+              <input type="date" data-date-inline-picker="true" placeholder="dateMod" [(ngModel)]="versiontoinsert.dateMod">
+            </td>
+            <td>
+              <input placeholder="number" [(ngModel)]="versiontoinsert.number">
+            </td>
+            <td>
+              <select [(ngModel)]="versiontoinsert.documentdto">
+                <option *ngFor="let document of documents" [ngValue]="document">{{document.title}}</option>
+              </select>
+            </td>
+           
+            <td>
+              <button (click)="insert(versiontoinsert)">Insert</button>
+            </td>
+            <td>
+              <button (click)="clear()">Clear</button>
+            </td>
+          </tr>
+          <tr *ngFor="let version of versions">
+            <td>
+              <input [(ngModel)]="version.content">
+            </td>
+            <td>
+              <input [(ngModel)]="version.dateMod" type="date" data-date-inline-picker="true">
+            </td>
+            <td>
+              <input [(ngModel)]="version.number">
+            </td>
+            <td>
+              <select [(ngModel)]="version.documentdto">
+                <option *ngFor="let document of documents" [ngValue]="document">{{document.title}}</option>
+              </select>
+            </td>
+
+            <td>
+              <button (click)=update(version)>Save</button>
+            </td>
+            <td>
+              <button (click)="delete(version)">Delete</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-1">
+  
+      </div>
+    </div>
+  </div>

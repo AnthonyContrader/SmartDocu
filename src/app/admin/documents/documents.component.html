@@ -1,0 +1,134 @@
+<div class="container">
+    <div class="row mt-5">
+
+      <div class="col-md-10">
+        <table>
+          <tr>
+            <th>
+              Titolo
+            </th>
+            <th>
+              Descrizione
+            </th>
+            <th>
+              Genere
+            </th>
+            <th>
+              Data Publicazione
+            </th>
+            <th>
+              Utente
+            </th>
+            <th>
+              Cartella
+            </th>
+            <th>
+              Categoria
+            </th>
+            <th>
+              Estensione
+            </th>
+            <th>
+              Edit
+            </th>
+            <th>
+              Document
+            </th>
+          </tr>
+          <tr>
+            <td>
+              <input placeholder="Titolo" [(ngModel)]="documenttoinsert.title">
+            </td>
+            <td>
+              <input placeholder="Descrizione" [(ngModel)]="documenttoinsert.description">
+            </td>
+            <td>
+              <input placeholder="Genere" [(ngModel)]="documenttoinsert.genre">
+            </td>
+            <td>
+              <input  type="date" data-date-inline-picker="true" placeholder="Data Publicazione" [(ngModel)]="documenttoinsert.datePub" ngbDatepicker>
+            </td>
+            <td>
+              <select [(ngModel)]="documenttoinsert.userDTO">
+                <option *ngFor="let user of users" [ngValue]="user.id">{{user.username}}</option>
+              </select>
+            </td>
+            <td>
+              <select [(ngModel)]="documenttoinsert.folderDTO">
+                <option *ngFor="let folder of folders" [ngValue]="folder.id">{{folder.name}}</option>
+              </select>
+            </td>
+            <td>
+              <select [(ngModel)]="documenttoinsert.categoryDTO">
+                <option *ngFor="let category of categories" [ngValue]="category.id">{{category.type}}</option>
+              </select>
+            </td>
+            <td>
+              <select [(ngModel)]="documenttoinsert.extensionDTO">
+                <option *ngFor="let extension of extensions" [ngValue]="extension.id">{{extension.type}}</option>
+              </select>
+            </td>
+
+            <td>
+              <button (click)="insert(documenttoinsert)">Insert</button>
+            </td>
+            <td>
+              <button (click)="clear()">Clear</button>
+            </td>
+      
+          <tr *ngFor="let document of documents">
+            <td>
+              {{document.id}}
+              <input [(ngModel)]="document.title">
+            </td>
+            <td>
+              {{document.description}}
+              <input [(ngModel)]="document.description">
+            </td>
+            <td>
+              {{document.genre}}
+              <input [(ngModel)]="document.genre">
+            </td>
+            <td>
+              {{document.datePub}}
+              <input [(ngModel)]="document.datePub" type="date" data-date-inline-picker="true">
+            </td>
+            <td>
+              {{document.userDTO.username}}
+              <select [(ngModel)]="document.userDTO">
+                <option *ngFor="let user of users" [ngValue]="user">{{user.username}}</option>
+              </select> 
+            </td>
+            <td>
+              {{document.folderDTO.name}}
+              <select [(ngModel)]="document.folderDTO">
+                <option *ngFor="let folder of folders" [ngValue]="folder">{{folder.name}}</option>
+              </select>
+            </td>
+            <td>
+              {{document.categoryDTO.type}}
+              <select [(ngModel)]="document.categoryDTO">
+                <option *ngFor="let category of categories" [ngValue]="category">{{category.type}}</option>
+              </select>
+            </td>
+            <td>
+              {{document.extensionDTO.type}}
+              <select [(ngModel)]="document.extensionDTO">
+                <option *ngFor="let extension of extensions" [ngValue]="extension">{{extension.type}}</option>
+              </select>
+            </td>
+
+            <td>
+              <button (click)=update(document)>Save</button>
+            </td>
+            <td>
+              <button (click)="delete(document)">Delete</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-md-1">
+  
+      </div>
+    </div>
+  </div>

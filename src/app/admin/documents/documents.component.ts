@@ -1,16 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+
 import { DocumentDTO} from 'src/dto/documentdto';
 import { DocumentService} from 'src/service/document.service';
+
 import {FolderDTO} from '../../../dto/folderdto';
 import {UserDTO} from '../../../dto/userdto';
 import {CategoryDTO} from '../../../dto/categorydto';
-import {VersionDTO} from '../../../dto/versiondto';
 import {ExtensionDTO} from '../../../dto/extensiondto';
+
 import {UserService} from '../../../service/user.service';
 import {FolderService} from '../../../service/folder.service';
 import {CategoryService} from '../../../service/category.service';
-import {VersionService} from '../../../service/version.service';
 import {ExtensionService} from '../../../service/extension.service';
+import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-documents',
@@ -23,7 +25,13 @@ export class DocumentsComponent implements OnInit {
   users: UserDTO[];
   folders: FolderDTO[];
   categories: CategoryDTO[];
-  extensions: ExtensionDTO[];
+  extensions: ExtensionDTO[]; 
+
+  
+  userdto: UserDTO;
+  name: string;
+
+  //guest: UserDTO = new UserDTO();
 
   documenttoinsert: DocumentDTO = new DocumentDTO();
 
@@ -40,7 +48,17 @@ export class DocumentsComponent implements OnInit {
   }
 
   getDocuments() {
-    this.service.getAll().subscribe(documents => this.documents = documents);
+    this.service.getAll().subscribe(documents => {
+      this.documents = documents
+      console.log(documents)
+      this.documents.forEach(element => {
+        console.log(element)
+        //this.name = element.user.username;
+        console.log(element.folder);
+        this.userdto= element.user;
+        console.log(this.userdto);
+      });
+    });
   }
 
   getUsers() {
@@ -51,7 +69,7 @@ export class DocumentsComponent implements OnInit {
     this.folderService.getAll().subscribe(folders => this.folders = folders);
   }
 
-  getCategories() {
+  getCategories() { 
     this.categoryService.getAll().subscribe(categories => this.categories = categories);
   }
 
@@ -75,4 +93,3 @@ export class DocumentsComponent implements OnInit {
     this.documenttoinsert = new DocumentDTO();
   }
 }
-

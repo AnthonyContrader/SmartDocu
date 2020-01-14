@@ -8,7 +8,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -35,7 +34,7 @@ public class Document {
 	@Temporal(TemporalType.DATE)
 	private Date datePub;
 	
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "id_user")
 	private User user;
 	
@@ -43,7 +42,7 @@ public class Document {
 	@JoinColumn(name = "id_folder")
 	private Folder folder;
 	
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "id_category")
 	private Category category;
 	

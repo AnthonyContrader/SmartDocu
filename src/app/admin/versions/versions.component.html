@@ -36,7 +36,7 @@
               <input placeholder="number" [(ngModel)]="versiontoinsert.number">
             </td>
             <td>
-              <select [(ngModel)]="versiontoinsert.documentdto">
+              <select [(ngModel)]="versiontoinsert.documentDTO">
                 <option *ngFor="let document of documents" [ngValue]="document">{{document.title}}</option>
               </select>
             </td>
@@ -59,7 +59,8 @@
               <input [(ngModel)]="version.number">
             </td>
             <td>
-              <select [(ngModel)]="version.documentdto">
+              {{version.documentDTO.title}}
+              <select [(ngModel)]="version.documentDTO">
                 <option *ngFor="let document of documents" [ngValue]="document">{{document.title}}</option>
               </select>
             </td>
